@@ -1,8 +1,11 @@
 <script>
+	import Switch from '$lib/Switch.svelte';
 	import '../app.css';
 </script>
 
-<header>header here</header>
+<header>
+	<Switch />
+</header>
 <main>
 	juicy content
 	<slot />

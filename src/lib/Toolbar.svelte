@@ -20,7 +20,7 @@
 
 <div
 	use:melt={$root}
-	class="flex min-w-max items-center gap-4 rounded-md bg-white px-3 py-3 text-neutral-700 shadow-sm lg:w-[35rem]"
+	class="flex min-w-max items-center gap-4 rounded-md bg-white px-3 py-3 text-neutral-700 shadow-sm lg:w-[35rem] dark:bg-primary-200"
 >
 	<div class="flex items-center gap-1" use:melt={$fontGroup}>
 		<button class="item" aria-label="bold" use:melt={$fontItem('bold')}>
