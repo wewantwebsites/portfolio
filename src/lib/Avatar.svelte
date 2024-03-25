@@ -11,5 +11,5 @@
 
 <div class="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-100">
 	<img use:melt={$image} alt="Avatar" class="h-full w-full rounded-[inherit]" />
-	<span use:melt={$fallback} class="text-3xl font-medium text-magnum-700">{initials}</span>
+	<span use:melt={$fallback} class="text-3xl font-medium text-primary-700">{initials}</span>
 </div>
