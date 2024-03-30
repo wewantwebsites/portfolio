@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { createToolbar, melt } from '@melt-ui/svelte';
 
-	// Icons
-	// import { Bold, Italic, Strikethrough, AlignLeft, AlignCenter, AlignRight } from '$icons/index.js';
-
 	const {
-		elements: { root, button, link, separator },
+		elements: { root, separator },
 		builders: { createToolbarGroup }
 	} = createToolbar();
 	const {
@@ -20,37 +17,35 @@
 
 <div
 	use:melt={$root}
-	class="flex min-w-max items-center gap-4 rounded-md bg-white px-3 py-3 text-neutral-700 shadow-sm lg:w-[35rem] dark:bg-primary-200"
+	class="flex min-w-max items-center gap-4 rounded-md bg-white px-3 py-3 text-neutral-700 shadow-sm dark:bg-primary-200"
 >
 	<div class="flex items-center gap-1" use:melt={$fontGroup}>
-		<button class="item" aria-label="bold" use:melt={$fontItem('bold')}>
-			<!-- <Bold class="size-5" /> -->
-		</button>
-		<button class="item" aria-label="italic" use:melt={$fontItem('italic')}>
-			<!-- <Italic class="size-5" /> -->
-		</button>
-		<button class="item" aria-label="strikethrough" use:melt={$fontItem('strikethrough')}>
-			<!-- <Strikethrough class="size-5" /> -->
-		</button>
+		<slot name="head" />
 	</div>
-	<div class="separator" use:melt={$separator} />
-	<div class="flex items-center gap-1" use:melt={$alignGroup}>
-		<button class="item" aria-label="align left" use:melt={$alignItem('left')}>
-			<!-- <AlignLeft class="size-5" /> -->
-		</button>
-		<button class="item" aria-label="align center" use:melt={$alignItem('center')}>
-			<!-- <AlignCenter class="size-5" /> -->
-		</button>
-		<button class="item" aria-label="align-right" use:melt={$alignItem('right')}>
-			<!-- <AlignRight class="size-5" /> -->
-		</button>
-	</div>
-	<div class="separator" use:melt={$separator} />
-	<a href="/" class="link nowrap flex-shrink-0" use:melt={$link}> Edited 2 hours ago </a>
-	<button
-		class="ml-auto rounded-md bg-primary-600 px-3 py-1 font-medium text-primary-100 hover:opacity-75 active:opacity-50"
-		use:melt={$button}>Save</button
-	>
+	{#if $$slots.body}
+		{#if $$slots.head}
+			<div class="separator" use:melt={$separator} />
+		{/if}
+		<div class="flex items-center gap-1" use:melt={$alignGroup}>
+			<div class="item">
+				<slot name="body" />
+			</div>
+		</div>
+	{/if}
+	{#if $$slots.tail}
+		{#if $$slots.body || $$slots.head}
+			<div class="separator" use:melt={$separator} />
+		{/if}
+		<div class="flex items-center gap-1">
+			<slot name="tail" />
+		</div>
+	{/if}
+
+	{#if $$slots.action}
+		<div class="flex items-center gap-1 ml-auto">
+			<slot name="action" />
+		</div>
+	{/if}
 </div>
 
 <style lang="postcss">
