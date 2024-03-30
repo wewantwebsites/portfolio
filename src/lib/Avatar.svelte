@@ -1,15 +1,12 @@
 <script lang="ts">
-	import { createAvatar, melt } from '@melt-ui/svelte';
-	let { imgSrc = '', initials = '' } = $props();
-
-	const {
-		elements: { image, fallback }
-	} = createAvatar({
-		src: imgSrc
-	});
+	export let size: 'sm' | 'md' | 'lg' = 'md';
+	export let imgAlt = 'Avatar';
+	export let imgSrc =
+		'https://vurjyxyenyiktfbofpzm.supabase.co/storage/v1/object/public/wewantwebsites_public/img/_73b5b146-8133-4d8f-9a2f-ae894da6619f.jpeg';
 </script>
 
-<div class="flex h-16 w-16 items-center justify-center rounded-full bg-neutral-100">
-	<img use:melt={$image} alt="Avatar" class="h-full w-full rounded-[inherit]" />
-	<span use:melt={$fallback} class="text-3xl font-medium text-primary-700">{initials}</span>
+<div class="avatar">
+	<div class="w-14 rounded-xl">
+		<img src={imgSrc} alt={imgAlt} />
+	</div>
 </div>
