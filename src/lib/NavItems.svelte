@@ -5,13 +5,16 @@
 		href?: string;
 		children?: MenuItems[];
 	};
+	type NavItemsProps = {
+		menuItems: MenuItems[];
+	};
 
-	export let menuItems: MenuItems[];
+	let { menuItems }: NavItemsProps = $props();
 </script>
 
 {#each menuItems as item}
 	{#if Object.hasOwn(item, 'children')}
-		<li>
+		<li class="bg-base-500">
 			<details>
 				<summary>{item.name}</summary>
 				<ul class="p-2">
@@ -22,6 +25,6 @@
 			</details>
 		</li>
 	{:else}
-		<li><a href={item.href}>{item.name}</a></li>
+		<li class="bg-base-500"><a href={item.href}>{item.name}</a></li>
 	{/if}
 {/each}

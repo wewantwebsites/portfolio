@@ -4,6 +4,9 @@
 	export let title: string;
 	export let description: string;
 	export let even: boolean = false;
+
+	const position = even ? 'start' : 'end';
+	const leftAlignedStyle = even ? 'md:text-end' : '';
 </script>
 
 <li id="timeline-{id}">
@@ -16,7 +19,7 @@
 			/></svg
 		>
 	</div>
-	<div class="timeline-{even ? 'start' : 'end'} md:text-end mb-10">
+	<div class="mb-10 timeline-{position} {leftAlignedStyle}">
 		<time class="font-mono italic">{date}</time>
 		<div class="text-lg font-black">{title}</div>
 		{description}

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import TimelineItem from './TimelineItem.svelte';
 	import { timeline } from './data/timeline.json';
+
 	type TimelineItem = {
 		id: string;
 		date: string;

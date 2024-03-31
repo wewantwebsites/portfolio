@@ -1,7 +1,9 @@
 <script>
+	import Button from '$lib/Button.svelte';
 	import Timeline from '$lib/Timeline.svelte';
 </script>
 
+<Button className="btn-sm btn-accent">button</Button>
 <Timeline />
 <article class="prose">
 	<h1 class="text-3xl font-bold underline">Hello world!</h1>

@@ -1,34 +1,76 @@
 {
-  "timeline": [
-    {
-      "date": "1984",
-      "title": "First Macintosh computer",
-      "description":
-        "The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh personal computer. It played a pivotal role in establishing desktop publishing as a general office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed in a beige case with integrated carrying handle; it came with a keyboard and single-button mouse."
-    },
-    {
-      "date": "1998",
-      "title": "iMac",
-      "description":
-        "iMac is a family of all-in-one Mac desktop computers designed and built by Apple Inc. It has been the primary part of Apple's consumer desktop offerings since its debut in August 1998, and has evolved through seven distinct forms."
-    },
-    {
-      "date": "2001",
-      "title": "iPod",
-      "description":
-        "The iPod is a discontinued series of portable media players and multi-purpose mobile devices designed and marketed by Apple Inc. The first version was released on October 23, 2001, about 8+1⁄2 months after the Macintosh version of iTunes was released. Apple sold an estimated 450 million iPod products as of 2022. Apple discontinued the iPod product line on May 10, 2022. At over 20 years, the iPod brand is the oldest to be discontinued by Apple."
-    },
-    {
-      "date": "2007",
-      "title": "iPhone",
-      "description":
-        "iPhone is a line of smartphones produced by Apple Inc. that use Apple's own iOS mobile operating system. The first-generation iPhone was announced by then-Apple CEO Steve Jobs on January 9, 2007. Since then, Apple has annually released new iPhone models and iOS updates. As of November 1, 2018, more than 2.2 billion iPhones had been sold. As of 2022, the iPhone accounts for 15.6% of global smartphone market share."
-    },
-    {
-      "date": "2015",
-      "title": "Apple Watch",
-      "description":
-        "The Apple Watch is a line of smartwatches produced by Apple Inc. It incorporates fitness tracking, health-oriented capabilities, and wireless telecommunication, and integrates with iOS and other Apple products and services."
-    }
-  ]
+	"timeline": [
+		{
+			"date": "2011",
+			"title": "Graduate from Holly Hgh School",
+			"description": "I graduated from Holly High School in 2011. I was a member of the varsity football, wrestling, and baseball teams."
+		},
+		{
+			"date": "2011",
+			"title": "QMC Inc. / Applied Tech Systems, LLC.",
+			"description": "Hired to assist with application and desktop support. Durig that time I learned a lot about the IT industry and how to support end users.\nI was able to learn about the company's proprietary software products and eventually was responsible with the installation and support of the software\nwith customers like: Boeing, Rols Royce, Honda, Volkswagen, GM, and many others."
+		},
+		{
+			"data": "2013",
+			"title": "Oakland Community College",
+			"description": "I started at OCC in 2013. They were the Raiders at the time #RaiderNation, now they are the OCC Owls which is cool too.\nI majored in Computer Inforamation Systems and took classes like: Java, C++, DataStructures & Algorithms, Web & Game Development, etc."
+		},
+		{
+			"date": "2014",
+			"title": "Worldwise.Net",
+			"description": "I was hired as a web developer at Worldwise.Net. I was responsible for the development and maintenance of the company's website and client websites.\nI was able to learn a lot about web development and design during my time there. I was eventually setup and  managed our company's on-prem\ndomain server. I was then responsible for client server & network installations and support. I was also responsible for all email services and our\nAmazon EC2 servers. I learned to work with CMS systems like WordPress, Joomla, and Drupal. I also learned to work with e-commerce platforms like\nMagento and WooCommerce. Working as many roles I gained skills in: HTML, CSS, JavaScript/jQuery, PHP, MySQL, Linux, Windows Server, nginx, Git, Apache, Shopify, and more."
+		},
+		{
+			"date": "2016",
+			"title": "I meet my Wife",
+			"description": "I met my wife in 2016. We met at OCC, in a class I failed for a number of reasons but we'll apply most of the blame to \"fate\", and have been together ever since."
+		},
+		{
+			"date": "2017",
+			"title": "High Level Marketing, LLC",
+			"description": "I leave Worldwise.Net to join High Level Marketing. I was hired as a web developer and was responsible for the frontend development\nand maintenance of the company's website and client websites. I was responsible for connecting the company's proprietary CMS to client websites as\nwell as developing custom themes and features for Google Tag Manager and Google Analytics. I created custom Google Maps for clients. I was\neventually asked to assist with a major refactoring task involving refactoring a 10k line php file, assisting with the upgrade of php 5.6 to php 7.0,\nand implementing PDO. I worked more with build tools like Grunt, Gulp, and NPM Scripts."
+		},
+		{
+			"date": "2018",
+			"title": "Graduate from Oakland Community College",
+			"description": "I graduated from OCC in 2018 with an Associate of Science Degree in Computer Information Systems focusing in Software Engineering."
+		},
+		{
+			"date": "2018",
+			"title": "United Shore Financial Services, LLC",
+			"description": "I was hired as a `UI Developer I` at United Shore. I was responsible for the development and maintenance of the company's websites as well as internal tools\nprimarily in the frontend including [UWM](uwm.com) & EASE (the broker portal). This was my first Agile environment and I was able to learn a lot about Agile and Scrum. I was able to work with a lot of\nBusiness Partnership Teams (BPTs), and because not every team had a UI component in scope every sprint, I was able to participate with up to 10 teams\nat one point. Eventually I was asked to assist with the development of the company's first [Vue SPA](https://brand360.uwm.com/). I was promoted to `UI Developer II` after\nfacilitating the advancement of colleagues in vue, vuex, vue-router, webpack, and ES6+."
+		},
+		{
+			"date": "2019",
+			"title": "Promoted to `UI Developer II`"
+		},
+		{
+			"date": "2020",
+			"title": "Tyle Technologies",
+			"description": "I joined the team as a Software Engineer working on their records management system (RMS). It was a C# .NET application with a SQL Server backend\nserving an Angular Hybrid (AngularJS & Angular) frontend via nginx. I was able to learn a lot about Public Safety Softare and the industry of selling\nsoftware to a market. This was an Agile environment as well."
+		},
+		{
+			"date": "2020",
+			"title": "United Wholesale Mortgage",
+			"description": "I was hired back to UWM as a `UI Developer II` to work on the Brand360 application. I then worked on the company's first large-scale React SPA\ncalled `BOLT`. While Brand360 was a `custom marketing material` application, BOLT was a Broker & Unerwrither tool. I was able to work with\ncreate-react-app, redux, redux-thunks, react-router, react-pdf, and pdf-lib."
+		},
+		{
+			"date": "2021",
+			"title": "Marry my Wife"
+		},
+		{
+			"date": "2021",
+			"title": "Promoted to `UI Developer III`"
+		},
+		{
+			"date": "2022",
+			"title": "First Son is Born",
+			"description": "My wife and I welcomed our first son into the world in December, 2022. He is a happy and healther fella."
+		},
+		{
+			"date": "2023",
+			"title": "Promoted to `UI Architect",
+			"description": "In that year: I migrated BOLT from CRA & webpack to Vite & esbuild resulting in reduction in build and test times, reduced the application's npm package vulnerabilities to 0, implemented a\nDSL and React library that allowed for a SDUI (Server Driven UI) approach to application development, myself and one other peer coordinated the adoption of said pattern\ninto the application, mentored 3 other UI Developers."
+		}
+	]
 }
