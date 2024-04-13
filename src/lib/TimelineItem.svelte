@@ -1,10 +1,19 @@
 <script lang="ts">
-	export let id: string;
-	export let date: string;
-	export let title: string;
-	export let description: string;
-	export let even: boolean = false;
+	import { fade, slide } from 'svelte/transition';
+	import TextOverflow from './TextOverflow.svelte';
 
+	type TimelineItemProps = {
+		id: string;
+		date: string;
+		title: string;
+		description: string;
+		even?: boolean;
+		mobile?: boolean;
+	};
+
+	let { id, date, title, description, even = false }: TimelineItemProps = $props();
+
+	const MAX_DESCRIPTION_LENGTH = 120;
 	const position = even ? 'start' : 'end';
 	const leftAlignedStyle = even ? 'md:text-end' : '';
 </script>
@@ -22,7 +31,11 @@
 	<div class="mb-10 timeline-{position} {leftAlignedStyle}">
 		<time class="font-mono italic">{date}</time>
 		<div class="text-lg font-black">{title}</div>
-		{description}
+		{#if description?.length > MAX_DESCRIPTION_LENGTH}
+			<TextOverflow text={description} clamp={MAX_DESCRIPTION_LENGTH} />
+		{:else}
+			{description}
+		{/if}
 	</div>
 	<hr />
 </li>

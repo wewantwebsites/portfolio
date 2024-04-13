@@ -1,6 +1,6 @@
 <script context="module">
 	export const menuItems = [
-		{ id: crypto.randomUUID(), name: 'About Me', href: '#about-me' },
+		{ id: crypto.randomUUID(), name: 'About Me', href: '#about' },
 		// TODO: enable once blog is implemented
 		// {
 		// 	id: crypto.randomUUID(),
@@ -19,17 +19,9 @@
 	import NavItems from './NavItems.svelte';
 </script>
 
-<div class="navbar bg-base-100">
+<div class="navbar bg-primary-100">
 	<div class="navbar-start">
-		<slot name="head" />
-	</div>
-	<div class="navbar-center hidden lg:flex">
-		<ul class="menu menu-horizontal px-1">
-			<NavItems {menuItems} />
-		</ul>
-	</div>
-	<div class="navbar-end">
-		<div class="dropdown">
+		<div class="dropdown mr-3">
 			<div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -52,5 +44,13 @@
 		<a href="/">
 			<Avatar />
 		</a>
+	</div>
+	<div class="navbar-center hidden lg:flex">
+		<ul class="menu menu-horizontal px-1">
+			<NavItems {menuItems} />
+		</ul>
+	</div>
+	<div class="navbar-end">
+		<slot name="tail" />
 	</div>
 </div>

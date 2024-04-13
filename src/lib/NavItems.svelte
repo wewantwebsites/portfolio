@@ -19,7 +19,9 @@
 				<summary>{item.name}</summary>
 				<ul class="p-2">
 					{#each item.children as child}
-						<li><a href={child.href}>{child.name}</a></li>
+						<li>
+							<a href={child.href}>{child.name}</a>
+						</li>
 					{/each}
 				</ul>
 			</details>

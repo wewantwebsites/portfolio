@@ -1,0 +1,48 @@
+tech:
+  - Node.js
+  - SQL/NoSQL
+  - RESTful APIs
+  - GraphQL
+  - Git
+  - Debugging
+  
+  backend:
+    - Node.js
+    - Express
+    - NestJS
+    - Prisma
+    - TypeORM
+    - GraphQL
+    - RESTful APIs
+    - SQL/NoSQL
+    - Testing
+    - GoLang (and similar tooling like GORM, Echo, etc)
+
+  devops:
+    - Docker
+    - Kubernetes
+    - CI/CD
+    - AWS
+    - GCP
+    - Vercel
+
+  frontend:
+    - HTML
+    - JavaScript/TypeScript
+    - Responsive Design
+
+    css:
+      - CSS
+      - SCSS
+      - TailwindCSS
+
+    spa:
+      - React/Remix
+      - Vue/Nuxt
+      - Svelte/SvelteKit
+
+skills: 
+  - problem solving
+  - debugging
+  - mentorship
+  - grokking
