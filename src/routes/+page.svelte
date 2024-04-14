@@ -1,6 +1,13 @@
-<div class="grid md:grid-cols-2 gap-12 lg:gap-24 min-h-[100vh]">
+<script>
+	import { Avatar } from '@skeletonlabs/skeleton';
+
+	const avatarURI =
+		'https://vurjyxyenyiktfbofpzm.supabase.co/storage/v1/object/public/wewantwebsites_public/img/_73b5b146-8133-4d8f-9a2f-ae894da6619f.jpeg';
+</script>
+
+<div class="grid md:grid-cols-2 gap-12 lg:gap-24 min-h-[100vh] px-4">
 	<div class="flex flex-col justify-center space-y-4">
-		<div class="prose space-y-4 p-4">
+		<div class="prose space-y-4 py-4">
 			<span class="chip variant-filled">Skeleton UI</span>
 			<span class="chip variant-filled">Tailwind CSS</span>
 			<span class="chip variant-filled">SvelteKit</span>
@@ -15,17 +22,11 @@
 			</p>
 		</div>
 		<div class="flex flex-col gap-2 min-[400px]:flex-row">
-			<a class="btn variant-filled-primary" href="#"> Contact Me </a>
+			<a class="btn variant-filled" href="#"> Contact Me </a>
 		</div>
 	</div>
 	<div class="flex items-center justify-center">
-		<img
-			alt="Profile Picture"
-			class="mx-auto aspect-square overflow-hidden rounded-full object-cover object-center border-4 border-gray-100"
-			height="500"
-			src="https://images.unsplash.com/photo-1612838320302-3b3b7f0b3b3b?auto=format&fit=crop&q=80&ixid=OzwxMjg4fDB8MXxyYW5kb218"
-			width="500"
-		/>
+		<Avatar src={avatarURI} initials={'CG'} width="w-[90%]" rounded="rounded-full" />
 	</div>
 </div>
 <div class="container py-12 md:py-24 lg:py-32">
