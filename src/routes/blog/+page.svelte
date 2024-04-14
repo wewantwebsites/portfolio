@@ -1,0 +1,1 @@
+<h1 class="h1">This is the blog default landing page</h1>

@@ -1,11 +1,31 @@
+<script>
+	import Avatar from "$lib/Avatar.svelte";
+	import Button from "$lib/Button.svelte";
+
+	const me = {
+		name: "Casimer A Guzdziol IV",
+		role: "Frontend Engineer",
+		avatarSrc: "https://avatars.dicebear.com/api/avataaars/john-doe.svg",
+	};
+	const tags = [
+		'10+ years in IT',
+		'Frontend Engineer',
+		'PageSpeed Enthusiast',
+	]
+</script>
 <div class="grid md:grid-cols-2 gap-12 lg:gap-24 min-h-[100vh]">
 	<div class="flex flex-col justify-center space-y-4">
 		<div class="space-y-4 p-4">
-			<div class="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
-				Welcome to my portfolio
-			</div>
-			<h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-				Hi, I'm John Doe
+			{#each tags as tag}
+				<div class="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm mr-2">
+					{tag}
+				</div>
+			{/each}
+			<h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-gradient-to-r from-turquoise-300 via-fuchsia-300 to-turquoise-200 inline-block text-transparent bg-clip-text">
+				Hi, I'm 
+				<span class="">
+					{me.name}
+				</span>
 			</h1>
 			<p class="max-w-[700px] text-gray-500 md:text-xl/relaxed">
 				I'm a frontend engineer with a passion for creating beautiful and accessible web
@@ -13,23 +33,12 @@
 			</p>
 		</div>
 		<div class="flex flex-col gap-2 min-[400px]:flex-row">
-			<a
-				class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 ml-4"
-				href="#"
-			>
+			<Button>
 				Contact Me
-			</a>
+			</Button>
 		</div>
 	</div>
-	<div class="flex items-center justify-center">
-		<img
-			alt="Profile Picture"
-			class="mx-auto aspect-square overflow-hidden rounded-full object-cover object-center border-4 border-gray-100"
-			height="500"
-			src="https://images.unsplash.com/photo-1612838320302-3b3b7e1b3b6b?auto=format&fit=crop&w=500&q=80"
-			width="500"
-		/>
-	</div>
+	<Avatar />
 </div>
 <div class="container py-12 md:py-24 lg:py-32">
 	<div class="grid max-w-6xl gap-10 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
