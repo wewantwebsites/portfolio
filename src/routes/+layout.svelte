@@ -1,55 +1,36 @@
 <script lang="ts">
-	import '../app.css';
-	import Toolbar from '$lib/Toolbar.svelte';
-	import Button from '$lib/Button.svelte';
-	import Avatar from '$lib/Avatar.svelte';
-	import Tooltip from '$lib/Tooltip.svelte';
+	import '../app.postcss';
 
-	let ro: ResizeObserver;
-	$effect(() => {
-		ro = new ResizeObserver((entries) => {
-			for (const entry of entries) {
-				const { target } = entry;
-				const { width, height } = target.getBoundingClientRect();
-				console.log({ width, height });
-			}
-		});
+	// Highlight JS
+	import hljs from 'highlight.js/lib/core';
+	import 'highlight.js/styles/github-dark.css';
+	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	import xml from 'highlight.js/lib/languages/xml'; // for HTML
+	import css from 'highlight.js/lib/languages/css';
+	import javascript from 'highlight.js/lib/languages/javascript';
+	import typescript from 'highlight.js/lib/languages/typescript';
 
-		return () => {
-			ro.disconnect();
-		};
-	});
+	hljs.registerLanguage('xml', xml); // for HTML
+	hljs.registerLanguage('css', css);
+	hljs.registerLanguage('javascript', javascript);
+	hljs.registerLanguage('typescript', typescript);
+	storeHighlightJs.set(hljs);
+
+	// Floating UI for Popups
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	import { AppBar } from '@skeletonlabs/skeleton';
+	import Nav from '$lib/Nav.svelte';
+
+	let { children } = $props();
 </script>
 
-<header>
-	<section>
-		<Toolbar>
-			<div slot="head">
-				<Tooltip text="We Want Websites, LLC owner">
-					<Avatar
-						initials="WWW"
-						imgSrc="https://vurjyxyenyiktfbofpzm.supabase.co/storage/v1/object/public/wewantwebsites_public/img/_73b5b146-8133-4d8f-9a2f-ae894da6619f.jpeg"
-					/>
-				</Tooltip>
-			</div>
-			<div slot="body"></div>
-			<div slot="tail">tail here</div>
-			<div slot="action">
-				<Button primary>action here</Button>
-			</div>
-		</Toolbar>
-	</section>
-</header>
-<main>
-	<slot>juicy content here</slot>
-</main>
-<section>contact form</section>
+<AppBar gridColumns="grid-cols-1" slotDefault="place-self-center">
+	<Nav />
+</AppBar>
 
-<footer>footer</footer>
-
-<style>
-	.header {
-		container-name: header;
-		container-type: all;
-	}
-</style>
+<div class="p-4">
+	{@render children()}
+</div>
