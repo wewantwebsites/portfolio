@@ -1,25 +1,36 @@
-<div class="parent">
-	<div class="div1 bg-success-400">Most Recent Blog Post</div>
-	<div class="div2 bg-warning-400">2nd Most Recent</div>
-	<div class="div3 bg-error-400">3rd Most Recent</div>
+<script>
+	import BlogCard from './BlogCard.svelte';
+	import OutlineCard from './OutlineCard.svelte';
+</script>
+
+<div class="box">
+	<div class="left">
+		<BlogCard imgSrc="https://placehold.co/2100x900.png" />
+	</div>
+	<div class="top">
+		<OutlineCard heading="Skeleton is Awesome!" subheading="Announcements" />
+	</div>
+	<div class="bottom">
+		<OutlineCard heading="Skeleton is Awesome!" subheading="Announcements" />
+	</div>
 </div>
 
 <style>
-	.parent {
+	.box {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(4, 1fr);
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
+		grid-template-rows: repeat(2, 1fr);
+		grid-column-gap: 1rem;
+		grid-row-gap: 3rem;
 	}
 
-	.div1 {
+	.left {
 		grid-area: 1 / 1 / 6 / 3;
 	}
-	.div2 {
+	.top {
 		grid-area: 1 / 3 / 3 / 5;
 	}
-	.div3 {
+	.bottom {
 		grid-area: 3 / 3 / 5 / 5;
 	}
 </style>

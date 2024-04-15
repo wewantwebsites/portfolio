@@ -23,10 +23,14 @@
 
 	import { AppBar } from '@skeletonlabs/skeleton';
 	import Nav from '$lib/Nav.svelte';
+
+	let { children } = $props();
 </script>
 
 <AppBar gridColumns="grid-cols-1" slotDefault="place-self-center">
 	<Nav />
 </AppBar>
 
-<slot />
+<div class="p-4">
+	{@render children()}
+</div>
