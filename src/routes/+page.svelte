@@ -3,29 +3,9 @@
 	import OutlineCard from '$lib/OutlineCard.svelte';
 	import Projects from '$lib/Projects.svelte';
 
-	const avatarURI =
-		'https://vurjyxyenyiktfbofpzm.supabase.co/storage/v1/object/public/wewantwebsites_public/img/_73b5b146-8133-4d8f-9a2f-ae894da6619f.jpeg';
-	const projectsFlag = false;
-	const blogFlag = true;
-	const tags = ['SvelteKit', 'Tailwind CSS', 'Skeleton UI'];
-
-	const blogPosts = [
-		{
-			heading: 'Skeleton is Awesome!',
-			subheading: 'Announcements',
-			backgroundURI: 'https://placehold.co/2100x900.png'
-		},
-		{
-			heading: 'Skeleton is Awesome!',
-			subheading: 'Announcements',
-			backgroundURI: 'https://placehold.co/2100x900.png'
-		},
-		{
-			heading: 'Skeleton is Awesome!',
-			subheading: 'Announcements',
-			backgroundURI: 'https://placehold.co/2100x900.png'
-		}
-	];
+	let { data } = $props();
+	const { avatarURI, blogPosts, featureFlags, tags } = data;
+	const { blogFlag, projectsFlag } = featureFlags;
 </script>
 
 <div class="grid md:grid-cols-2 gap-12 lg:gap-24">
@@ -49,7 +29,7 @@
 			</p>
 		</div>
 		<div class="flex flex-col gap-2 min-[400px]:flex-row">
-			<a class="btn variant-filled-primary" href="#"> Contact Me </a>
+			<a class="btn variant-ghost-primary" href="mailto:cas.guzdziol@wewantweb.site"> Email Me </a>
 		</div>
 	</div>
 	<div class="flex items-center justify-center">

@@ -47,3 +47,9 @@
 		</div>
 	</footer>
 </a>
+
+<style>
+	a:hover {
+		cursor: pointer;
+	}
+</style>
