@@ -14,3 +14,12 @@ export type BlogCardProps = {
 	publishDate?: string;
 	author?: Author;
 };
+
+export type Post = {
+	title: string;
+	description: string;
+	date: string;
+	categories: string[];
+	published: boolean;
+	slug?: string;
+};

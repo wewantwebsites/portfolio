@@ -11,7 +11,7 @@
 <div class="grid md:grid-cols-2 gap-12 lg:gap-24">
 	<div class="flex flex-col justify-center space-y-4">
 		<div class="prose space-y-4 py-4">
-			<span class="chip variant-ghost-tertiary text-white">Welcome to my portfolio!</span>
+			<span class="chip variant-ghost-primary text-white">Welcome to my portfolio!</span>
 			{#each tags as tag}
 				<span class="chip variant-ghost-secondary text-neutral-200 pointer-events-none mr-2"
 					>{tag}</span

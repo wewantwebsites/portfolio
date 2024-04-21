@@ -43,7 +43,7 @@
 	</p>
 </section>
 
-<a href="/resume" class="btn variant-ghost-tertiary">View My Resume</a>
+<!-- <a class="btn variant-ghost-tertiary">View My Resume</a> -->
 
 <style lang="postcss">
 	p {

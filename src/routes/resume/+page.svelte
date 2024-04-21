@@ -4,26 +4,24 @@
 
 <div class="flex flex-col min-h-[100dvh]">
 	<header class="bg-primary-800 text-white mb-4">
-		<CursorHero bannerStyles="m-[-4rem]">
-			<div class="container mx-auto flex flex-col items-center text-center py-8 px-4 md:px-6">
-				<h1 class="h1 mb-2">Casimer A. Guzdziol IV</h1>
-				<h2 class="h2 mb-4">Software Engineer, Web UI Guru</h2>
-				<div class="flex items-center space-x-4">
-					<a href="mailto:cas.guzdziol@wewantweb.site" class="hover:underline"
-						>cas.guzdziol@wewantweb.site</a
-					>
-					<span>|</span>
-					<a
-						href="https://www.linkedin.com/in/casimer-guzdziol-iv-785276100/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="hover:underline"
-					>
-						LinkedIn
-					</a>
-				</div>
+		<div class="container mx-auto flex flex-col items-center text-center py-8 px-4 md:px-6">
+			<h1 class="h1 mb-2">Casimer A. Guzdziol IV</h1>
+			<h2 class="h2 mb-4">Software Engineer, Web UI Guru</h2>
+			<div class="flex items-center space-x-4">
+				<a href="mailto:cas.guzdziol@wewantweb.site" class="hover:underline"
+					>cas.guzdziol@wewantweb.site</a
+				>
+				<span>|</span>
+				<a
+					href="https://www.linkedin.com/in/casimer-guzdziol-iv-785276100/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="hover:underline"
+				>
+					LinkedIn
+				</a>
 			</div>
-		</CursorHero>
+		</div>
 	</header>
 	<main class="container mx-auto py-12 px-4 md:px-6">
 		<section class="mb-12">
