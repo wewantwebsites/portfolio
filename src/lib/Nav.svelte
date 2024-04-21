@@ -1,10 +1,13 @@
-<script>
-	import { page } from '$app/stores';
-	const routes = [
+<script context="module">
+	export const routes = [
 		{ name: 'Home', href: '/' },
 		{ name: 'About', href: '/about' },
 		{ name: 'Blog', href: '/blog' }
 	];
+</script>
+
+<script>
+	import { page } from '$app/stores';
 </script>
 
 <nav>

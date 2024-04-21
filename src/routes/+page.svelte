@@ -2,36 +2,17 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import OutlineCard from '$lib/OutlineCard.svelte';
 	import Projects from '$lib/Projects.svelte';
+	import { Mail } from 'lucide-svelte';
 
-	const avatarURI =
-		'https://vurjyxyenyiktfbofpzm.supabase.co/storage/v1/object/public/wewantwebsites_public/img/_73b5b146-8133-4d8f-9a2f-ae894da6619f.jpeg';
-	const projectsFlag = false;
-	const blogFlag = true;
-	const tags = ['SvelteKit', 'Tailwind CSS', 'Skeleton UI'];
-
-	const blogPosts = [
-		{
-			heading: 'Skeleton is Awesome!',
-			subheading: 'Announcements',
-			backgroundURI: 'https://placehold.co/2100x900.png'
-		},
-		{
-			heading: 'Skeleton is Awesome!',
-			subheading: 'Announcements',
-			backgroundURI: 'https://placehold.co/2100x900.png'
-		},
-		{
-			heading: 'Skeleton is Awesome!',
-			subheading: 'Announcements',
-			backgroundURI: 'https://placehold.co/2100x900.png'
-		}
-	];
+	let { data } = $props();
+	const { avatarURI, blogPosts, featureFlags, tags } = data;
+	const { blogFlag, projectsFlag } = featureFlags;
 </script>
 
 <div class="grid md:grid-cols-2 gap-12 lg:gap-24">
 	<div class="flex flex-col justify-center space-y-4">
 		<div class="prose space-y-4 py-4">
-			<span class="chip variant-ghost-tertiary text-white">Welcome to my portfolio!</span>
+			<span class="chip variant-ghost-primary text-white">Welcome to my portfolio!</span>
 			{#each tags as tag}
 				<span class="chip variant-ghost-secondary text-neutral-200 pointer-events-none mr-2"
 					>{tag}</span
@@ -49,7 +30,9 @@
 			</p>
 		</div>
 		<div class="flex flex-col gap-2 min-[400px]:flex-row">
-			<a class="btn variant-filled-primary" href="#"> Contact Me </a>
+			<a class="btn variant-ghost-primary" href="mailto:cas.guzdziol@wewantweb.site"
+				><Mail class="mr-3" /> Email Me
+			</a>
 		</div>
 	</div>
 	<div class="flex items-center justify-center">

@@ -22,18 +22,19 @@
 			}
 		};
 	}
+
+	let { bannerStyles } = $props();
 </script>
 
-<div class="wrapper" use:cursorHero>
+<div class="wrapper {bannerStyles}" use:cursorHero>
 	<div class="hero">
-		<!-- <h1 class="hero__heading">Have a nice day!</h1> -->
+		<slot />
 	</div>
 
 	<div class="hero hero--secondary" aria-hidden="true">
-		<div class="hero">
-			<h1 class="hero__heading">Have a nice day!</h1>
+		<div class="hero hero__heading">
+			<slot />
 		</div>
-		<!-- <p class="hero__heading">It will be sunny</p> -->
 	</div>
 </div>
 
@@ -43,7 +44,6 @@
 	}
 
 	.hero {
-		min-height: 100vh;
 		padding: clamp(1rem, 2vw, 5rem);
 		display: flex;
 		align-items: center;
@@ -63,8 +63,6 @@
 	}
 
 	.hero__heading {
-		font-size: clamp(2rem, 5vw, 8rem);
-		text-transform: uppercase;
 		margin: 0;
 		max-width: fit-content;
 		margin-left: auto;
