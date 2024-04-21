@@ -2,6 +2,7 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import OutlineCard from '$lib/OutlineCard.svelte';
 	import Projects from '$lib/Projects.svelte';
+	import { Mail } from 'lucide-svelte';
 
 	let { data } = $props();
 	const { avatarURI, blogPosts, featureFlags, tags } = data;
@@ -29,7 +30,9 @@
 			</p>
 		</div>
 		<div class="flex flex-col gap-2 min-[400px]:flex-row">
-			<a class="btn variant-ghost-primary" href="mailto:cas.guzdziol@wewantweb.site"> Email Me </a>
+			<a class="btn variant-ghost-primary" href="mailto:cas.guzdziol@wewantweb.site"
+				><Mail class="mr-3" /> Email Me
+			</a>
 		</div>
 	</div>
 	<div class="flex items-center justify-center">

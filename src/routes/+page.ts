@@ -18,7 +18,7 @@ const blogPosts = [
 	}
 ];
 const projectsFlag = false;
-const blogFlag = true;
+const blogFlag = false;
 const tags = ['SvelteKit', 'Tailwind CSS', 'Skeleton UI'];
 const featureFlags = {
 	projectsFlag,
