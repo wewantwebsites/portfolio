@@ -1,11 +1,8 @@
 # Need It
 
-- [ ] mdx for blog posts
-- [ ] api for serving
+- [x] mdx for blog posts
+- [x] api for serving
+- [x] prerender?
 - [ ] contact form
-
-## On Deck
-
 - [ ] form validation?
 - [ ] SSG?
-- [ ] prerender?
