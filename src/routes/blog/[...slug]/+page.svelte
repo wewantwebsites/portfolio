@@ -1,6 +1,6 @@
 <script>
 	import CursorHero from '$lib/CursorHero.svelte';
-	import { TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
+	import { Accordion, AccordionItem, TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 	let { data } = $props();
 	console.log(data);
 </script>
@@ -23,18 +23,27 @@
 
 <article class="grid gap-2 md:grid-cols-[3fr_1fr]">
 	<section class="mb-5 md:hidden">
-		<TableOfContents />
+		<Accordion>
+			<AccordionItem>
+				<svelte:fragment slot="summary"></svelte:fragment>
+				<svelte:fragment slot="content">
+					<TableOfContents />
+				</svelte:fragment>
+			</AccordionItem>
+		</Accordion>
 	</section>
 	<main class="container ml-auto prose" use:tocCrawler={{ mode: 'generate' }}>
 		<svelte:component this={data.content} />
 	</main>
-	<aside class="hidden md:block ml-10">
-		<TableOfContents />
+	<aside class="hidden md:block md:ml-10">
+		<div class="sticky top-1">
+			<TableOfContents />
+		</div>
 	</aside>
 </article>
 
 <style lang="postcss">
-	:global(.prose, .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6) {
+	:global(.prose, .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6, .prose *) {
 		@apply text-secondary-50;
 	}
 </style>
