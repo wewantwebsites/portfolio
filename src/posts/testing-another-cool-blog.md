@@ -1,9 +1,9 @@
 ---
-title: The Benefits of Regular Exercise
-description: First ever post and it's an example
-date: 04/27/2024
+title: Testing Another Cool Blog
+description: The third ever test blog
+date: 03/028/2024
 categories:
-  - professional
+  - personal
 published: true
 ---
 

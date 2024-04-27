@@ -23,6 +23,7 @@
 
 	import { AppBar } from '@skeletonlabs/skeleton';
 	import Nav from '$lib/Nav.svelte';
+	import { text } from 'stream/consumers';
 
 	let { children } = $props();
 </script>
@@ -31,6 +32,36 @@
 	<Nav />
 </AppBar>
 
-<div class="container mx-auto p-4">
+<div class="mx-auto p-4">
 	{@render children()}
 </div>
+
+<footer class="border-t border-t-surface-500 p-4 bg-gradient-to-t from-surface-700 to-surface-900">
+	<article class="grid sm:grid-cols-2 md:grid-cols-3">
+		<section class="py-3 border-b border-b-surface-700 md:border-none">
+			<h3 class="h3">Navigation</h3>
+			<ul>
+				<li><a class="hover:text-tertiary-500" href="/">Home</a></li>
+				<li><a class="hover:text-tertiary-500" href="/about">About</a></li>
+				<!-- <li><a href="/contact">Contact Me</a></li> -->
+			</ul>
+		</section>
+		<section class="py-3 border-b border-b-surface-700 md:border-none">
+			<h3 class="h3">Influenced By:</h3>
+			<ul>
+				<li><a class="hover:text-tertiary-500" href="https://svelte.dev">Svelte</a></li>
+				<li><a class="hover:text-tertiary-500" href="https://tailwindcss.com">Tailwind CSS</a></li>
+			</ul>
+			<h3 class="h3">Social</h3>
+			<ul>
+				<li><a class="hover:text-tertiary-500" href="https://linkedin.com">LinkedIn</a></li>
+				<li><a class="hover:text-tertiary-500" href="https://github.com">GitHub</a></li>
+				<li><a class="hover:text-tertiary-500" href="https://twitter.com">Twitter</a></li>
+			</ul>
+		</section>
+		<section class="py-3 col-span-full md:col-span-1">
+			<h3 class="h3">Contact</h3>
+			<p>For any inquiries, please contact me at:</p>
+		</section>
+	</article>
+</footer>

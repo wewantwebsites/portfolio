@@ -1,4 +1,15 @@
 <script lang="ts">
+	type OutlineCardProps = {
+		heading: string;
+		subheading: string;
+		options: {
+			backgroundUri: string;
+			backgroundAlt: string;
+			bannerUri: string;
+			bannerAlt: string;
+		};
+	};
+
 	let {
 		heading,
 		subheading,
@@ -8,23 +19,14 @@
 			bannerUri: 'https://via.placeholder.com/150',
 			bannerAlt: 'Placeholder Image'
 		}
-	}: {
-		heading: string;
-		subheading: string;
-		options: {
-			backgroundUri: string;
-			backgroundAlt: string;
-			bannerUri: string;
-			bannerAlt: string;
-		};
-	} = $props();
+	}: OutlineCardProps = $props();
 </script>
 
 <!-- [ ] implement the backgroundUri so that upon hover the background zooms in slightly -->
 <div
-	class="rounded overflow-none shadow-sm p-[1px] relative bg-white transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:variant-gradient-primary-secondary hover:cursor-pointer"
+	class="rounded overflow-none shadow-sm p-[1px] relative bg-white transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:variant-gradient-primary-secondary hover:animate-gradient-rotate hover:cursor-pointer hover:scale-[101%] hover:shadow-lg"
 >
-	<div class="p-4 md:p-6 rounded bg-gradient-to-br from-primary-800 to-surface-900">
+	<div class="p-4 md:p-6 rounded bg-gradient-to-br from-surface-700 to-surface-900">
 		<div class="grid grid-cols-[1fr_auto]">
 			<div class="grid subgrid gap-2 text-white">
 				<h3 class="text-xl font-bold">{heading}</h3>
