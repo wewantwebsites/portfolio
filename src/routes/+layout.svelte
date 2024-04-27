@@ -36,7 +36,7 @@
 	{@render children()}
 </div>
 
-<footer class="border-t border-t-surface-500 p-4 bg-gradient-to-t from-surface-700 to-surface-900">
+<footer class="border-t border-t-surface-500 p-4">
 	<article class="grid sm:grid-cols-2 md:grid-cols-3">
 		<section class="py-3 border-b border-b-surface-700 md:border-none">
 			<h3 class="h3">Navigation</h3>
