@@ -22,19 +22,21 @@ export const GET: RequestHandler = async ({ url }) => {
 		console.log('No search params provided');
 		console.log('Fetching all posts');
 		const blogs = await getAllPosts(paths);
-
+		console.log('All posts fetched', blogs);
+		console.groupEnd();
 		return json(blogs);
 	}
 
 	const slug = url.searchParams.get('slug');
 	if (!slug) {
 		console.error('No slug provided');
-
+		console.groupEnd();
 		return error(400, 'Bad request');
 	}
 	console.log(`Fetching post with slug: ${slug}`);
 	const blog = await getBlogPost(paths, slug);
-
+	console.log('Post fetched', blog);
+	console.groupEnd();
 	return json(blog);
 };
 
