@@ -37,7 +37,7 @@
 </div>
 
 <footer class="border-t border-t-surface-500 p-4">
-	<article class="grid sm:grid-cols-2 md:grid-cols-3">
+	<article class="mx-auto container grid sm:grid-cols-2 md:grid-cols-3">
 		<section class="py-3 border-b border-b-surface-700 md:border-none">
 			<h3 class="h3">Navigation</h3>
 			<ul>

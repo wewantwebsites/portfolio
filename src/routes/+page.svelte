@@ -34,8 +34,8 @@
 					>{tag}</span
 				>
 			{/each}
-			<h1 class="name-heading">Hi, I'm Casimer A Guzdziol IV</h1>
-			<p class="max-w-[700px] md:text-xl/relaxed text-secondary-50">
+			<h1 class="name-heading">Casimer A Guzdziol IV</h1>
+			<p class="max-w-[700px] md:text-xl/relaxed text-white">
 				I'm a frontend engineer with a passion for creating beautiful and accessible web
 				experiences. This is my corner of the internet where I share my thoughts and projects. Enjoy
 				😄

@@ -1,4 +1,4 @@
-<section class="container max-w-2xl mx-auto text-secondary-50">
+<section class="container max-w-2xl mx-auto text-white">
 	<h2 class="h2 mb-5">About Me</h2>
 
 	<p>

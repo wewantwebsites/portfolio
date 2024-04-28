@@ -19,7 +19,7 @@ export async function load({ params, fetch }) {
 			const path = `/src/posts/${params.slug}.md`;
 			const file = (await postGlob[path]()) as { default: string };
 			const res = await fetch('/api/posts?slug=' + params.slug);
-			const data = await res.json();
+			const data: Post = await res.json();
 
 			fetchMap[params.slug] = {
 				...data,
