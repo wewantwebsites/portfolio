@@ -2,7 +2,6 @@
 	import CursorHero from '$lib/CursorHero.svelte';
 	import { Accordion, AccordionItem, TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 	let { data } = $props();
-	console.log(data);
 </script>
 
 <svete:head>
@@ -17,7 +16,7 @@
 	<meta name="twitter:description" content={data.description} />
 </svete:head>
 
-<CursorHero bannerStyles="m-[-1rem] mx-[-3rem] mb-[1rem] py-1 md:py-6">
+<CursorHero bannerStyles="m-[-1rem] mb-[1rem] py-1 md:py-6">
 	<h1 class="h1 text-center mx-auto capitalize">{data.title}</h1>
 </CursorHero>
 <div class="container mx-auto p-4">
@@ -25,7 +24,7 @@
 		<section class="mb-5 md:hidden">
 			<Accordion>
 				<AccordionItem>
-					<svelte:fragment slot="summary"></svelte:fragment>
+					<svelte:fragment slot="summary">Quick Links</svelte:fragment>
 					<svelte:fragment slot="content">
 						<TableOfContents />
 					</svelte:fragment>
