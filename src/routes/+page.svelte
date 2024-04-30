@@ -1,4 +1,5 @@
 <script lang="ts">
+<script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import OutlineCard from '$lib/OutlineCard.svelte';
 	import { Mail } from 'lucide-svelte';
@@ -6,6 +7,23 @@
 	let { data } = $props();
 	const { blogPosts, featureFlags, tags, avatarURI } = data;
 	const { blogFlag, projectsFlag } = featureFlags;
+	const bigHairUri = '/img/big-hair.jpg';
+	const storyTellingUri = '/img/story-telling.jpg';
+	let normalImg = $state(true);
+
+	function photoSwap(node: Node, { img }) {
+		const handleMouseEnter = () => (img = false);
+		const handleMouseLeave = () => (img = true);
+		node.addEventListener('mouseenter', handleMouseEnter);
+		node.addEventListener('mouseleave', handleMouseLeave);
+
+		return {
+			destroy() {
+				node.removeEventListener('mouseenter', handleMouseEnter);
+				node.removeEventListener('mouseleave', handleMouseLeave);
+			}
+		};
+	}
 </script>
 
 <div class="container mx-auto grid md:grid-cols-2 gap-12 lg:gap-24">

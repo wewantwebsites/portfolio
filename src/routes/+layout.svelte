@@ -23,7 +23,6 @@
 
 	import { AppBar } from '@skeletonlabs/skeleton';
 	import Nav from '$lib/Nav.svelte';
-	import { text } from 'stream/consumers';
 
 	let { children } = $props();
 </script>
