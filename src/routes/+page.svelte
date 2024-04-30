@@ -5,10 +5,7 @@
 
 	let { data } = $props();
 	const { blogPosts, featureFlags, tags, avatarURI } = data;
-	const { blogFlag, projectsFlag } = featureFlags;
-	const bigHairUri = '/img/big-hair.jpg';
-	const storyTellingUri = '/img/story-telling.jpg';
-	let normalImg = $state(true);
+	const { projectsFlag } = featureFlags;
 
 	function photoSwap(node: Node, { img }) {
 		const handleMouseEnter = () => (img = false);
@@ -58,7 +55,7 @@
 	</div>
 	{#if projectsFlag && data.blogPosts.length > 0}
 		<section class="col-span-full grid subgrid gap-3">
-			{#each data.blogPosts as post}
+			{#each blogPosts as post}
 				<a href="/blog/{post.slug}" data-sveltekit-preload-data>
 					<OutlineCard
 						heading={post.title}

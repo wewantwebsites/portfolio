@@ -20,5 +20,3 @@ export async function load({ fetch }) {
 		avatarURI
 	};
 }
-
-export const prerender = true;

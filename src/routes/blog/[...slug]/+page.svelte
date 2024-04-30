@@ -31,7 +31,7 @@
 				<AccordionItem>
 					<svelte:fragment slot="summary">Quick Links</svelte:fragment>
 					<svelte:fragment slot="content">
-						<TableOfContents active="text-tertiary-500" />
+						<TableOfContents active="text-secondary-500" />
 					</svelte:fragment>
 				</AccordionItem>
 			</Accordion>
@@ -41,7 +41,7 @@
 		</main>
 		<aside class="hidden md:block md:ml-10">
 			<div class="come-with-me">
-				<TableOfContents active="text-tertiary-500" />
+				<TableOfContents active="text-secondary-500" />
 			</div>
 		</aside>
 	</article>
