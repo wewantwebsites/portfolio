@@ -10,7 +10,7 @@ export async function GET({ fetch }) {
 	const posts = (await res.json()) as Post[];
 
 	const headers = { 'Content-Type': 'application/rss+xml' };
-	const url = 'https://cg4.dev';
+	const url = 'https://cg4-dev.vercel.app';
 	const xml = `
 		<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 			<channel>
