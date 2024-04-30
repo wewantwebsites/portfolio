@@ -36,6 +36,7 @@
 	<p>
 		When I'm not coding or spending time with my family, I enjoy making strangers laugh and
 		unmasking bad-guys after solving a crime with friends. Feel free to reach out to me at <a
+			class="text-tertiary-500 hover:text-tertiary-700"
 			href="mailto:cas.guzdziol@wewantweb.site"
 		>
 			cas.guzdziol@wewantweb.site

@@ -31,7 +31,7 @@
 				<AccordionItem>
 					<svelte:fragment slot="summary">Quick Links</svelte:fragment>
 					<svelte:fragment slot="content">
-						<TableOfContents active="text-tertiary-500" />
+						<TableOfContents active="text-secondary-500" />
 					</svelte:fragment>
 				</AccordionItem>
 			</Accordion>
@@ -41,7 +41,7 @@
 		</main>
 		<aside class="hidden md:block md:ml-10">
 			<div class="come-with-me">
-				<TableOfContents active="text-tertiary-500" />
+				<TableOfContents active="text-secondary-500" />
 			</div>
 		</aside>
 	</article>
@@ -50,6 +50,18 @@
 <style lang="postcss">
 	:global(.prose, .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6, .prose *) {
 		@apply text-white;
+	}
+
+	:global(.prose strong, .prose b, .prose em, .prose i) {
+		@apply text-secondary-500;
+	}
+
+	:global(.prose code) {
+		@apply text-neutral-200;
+	}
+
+	:global(.prose a) {
+		@apply text-tertiary-500 hover:text-tertiary-700;
 	}
 
 	.come-with-me {
@@ -63,6 +75,6 @@
 				rgba(var(--color-primary-500) / 0.33) 0px,
 				transparent 50%
 			),
-			radial-gradient(at 98% 10%, rgba(var(--color-tertiary-500) / 0.33) 0px, transparent 50%);
+			radial-gradient(at 98% 10%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%);
 	}
 </style>

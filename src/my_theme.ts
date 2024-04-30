@@ -32,27 +32,27 @@ export const my_theme: CustomThemeConfig = {
 		'--color-primary-800': '23 50 74', // #17324a
 		'--color-primary-900': '19 41 61', // #13293d
 		// secondary | #ef476f
-		'--color-secondary-50': '253 227 233', // #fde3e9
-		'--color-secondary-100': '252 218 226', // #fcdae2
-		'--color-secondary-200': '251 209 219', // #fbd1db
-		'--color-secondary-300': '249 181 197', // #f9b5c5
-		'--color-secondary-400': '244 126 154', // #f47e9a
-		'--color-secondary-500': '239 71 111', // #ef476f
-		'--color-secondary-600': '215 64 100', // #d74064
-		'--color-secondary-700': '179 53 83', // #b33553
-		'--color-secondary-800': '143 43 67', // #8f2b43
-		'--color-secondary-900': '117 35 54', // #752336
+		'--color-tertiary-50': '253 227 233', // #fde3e9
+		'--color-tertiary-100': '252 218 226', // #fcdae2
+		'--color-tertiary-200': '251 209 219', // #fbd1db
+		'--color-tertiary-300': '249 181 197', // #f9b5c5
+		'--color-tertiary-400': '244 126 154', // #f47e9a
+		'--color-tertiary-500': '239 71 111', // #ef476f
+		'--color-tertiary-600': '215 64 100', // #d74064
+		'--color-tertiary-700': '179 53 83', // #b33553
+		'--color-tertiary-800': '143 43 67', // #8f2b43
+		'--color-tertiary-900': '117 35 54', // #752336
 		// tertiary | #ffd166
-		'--color-tertiary-50': '255 248 232', // #fff8e8
-		'--color-tertiary-100': '255 246 224', // #fff6e0
-		'--color-tertiary-200': '255 244 217', // #fff4d9
-		'--color-tertiary-300': '255 237 194', // #ffedc2
-		'--color-tertiary-400': '255 223 148', // #ffdf94
-		'--color-tertiary-500': '255 209 102', // #ffd166
-		'--color-tertiary-600': '230 188 92', // #e6bc5c
-		'--color-tertiary-700': '191 157 77', // #bf9d4d
-		'--color-tertiary-800': '153 125 61', // #997d3d
-		'--color-tertiary-900': '125 102 50', // #7d6632
+		'--color-secondary-50': '255 248 232', // #fff8e8
+		'--color-secondary-100': '255 246 224', // #fff6e0
+		'--color-secondary-200': '255 244 217', // #fff4d9
+		'--color-secondary-300': '255 237 194', // #ffedc2
+		'--color-secondary-400': '255 223 148', // #ffdf94
+		'--color-secondary-500': '255 209 102', // #ffd166
+		'--color-secondary-600': '230 188 92', // #e6bc5c
+		'--color-secondary-700': '191 157 77', // #bf9d4d
+		'--color-secondary-800': '153 125 61', // #997d3d
+		'--color-secondary-900': '125 102 50', // #7d6632
 		// success | #4F9D69
 		'--color-success-50': '229 240 233', // #e5f0e9
 		'--color-success-100': '220 235 225', // #dcebe1

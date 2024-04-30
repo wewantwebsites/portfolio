@@ -4,11 +4,8 @@
 	import { Mail } from 'lucide-svelte';
 
 	let { data } = $props();
-	const { blogPosts, featureFlags, tags } = data;
-	const { blogFlag, projectsFlag } = featureFlags;
-	const bigHairUri = '/img/big-hair.jpg';
-	const storyTellingUri = '/img/story-telling.jpg';
-	let normalImg = $state(true);
+	const { blogPosts, featureFlags, tags, avatarURI } = data;
+	const { projectsFlag } = featureFlags;
 
 	function photoSwap(node: Node, { img }) {
 		const handleMouseEnter = () => (img = false);
@@ -49,25 +46,25 @@
 	</div>
 	<div class="flex items-center justify-center">
 		<Avatar
-			src={storyTellingUri}
+			src={avatarURI}
 			initials={'CG'}
-			width="w-full"
+			width="max-w-[300px] md:max-w-full"
 			rounded="rounded-full"
 			border="border-4 border-primary-500"
 		/>
 	</div>
 	{#if projectsFlag && data.blogPosts.length > 0}
 		<section class="col-span-full grid subgrid gap-3">
-			{#each data.blogPosts as post}
+			{#each blogPosts as post}
 				<a href="/blog/{post.slug}" data-sveltekit-preload-data>
 					<OutlineCard
 						heading={post.title}
 						subheading={post.description}
 						options={{
-							backgroundUri: post.image,
-							backgroundAlt: post.title,
-							bannerUri: post.image,
-							bannerAlt: post.title
+							bannerUri: post.imgSrc,
+							bannerAlt: post.imgAlt,
+							imgHeight: 200,
+							imgWidth: 200
 						}}
 					/>
 				</a>
@@ -75,20 +72,6 @@
 		</section>
 	{/if}
 </div>
-
-{#if blogFlag}
-	<div class="mx-auto items-start gap-8 md:gap-12">
-		<div class="py-4">
-			<h2 class="h2 tracking-tighter">My Latest Posts</h2>
-			<p>What I have been thinking most recently</p>
-		</div>
-		<section class="grid gap-4">
-			{#each blogPosts as post}
-				<OutlineCard {...post} />
-			{/each}
-		</section>
-	</div>
-{/if}
 
 <style lang="postcss">
 	.name-heading {
