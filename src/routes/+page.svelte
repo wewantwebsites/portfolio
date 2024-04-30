@@ -1,5 +1,4 @@
 <script lang="ts">
-<script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import OutlineCard from '$lib/OutlineCard.svelte';
 	import { Mail } from 'lucide-svelte';
@@ -76,20 +75,6 @@
 		</section>
 	{/if}
 </div>
-
-{#if blogFlag}
-	<div class="mx-auto items-start gap-8 md:gap-12">
-		<div class="py-4">
-			<h2 class="h2 tracking-tighter">My Latest Posts</h2>
-			<p>What I have been thinking most recently</p>
-		</div>
-		<section class="grid gap-4">
-			{#each blogPosts as post}
-				<OutlineCard {...post} />
-			{/each}
-		</section>
-	</div>
-{/if}
 
 <style lang="postcss">
 	.name-heading {

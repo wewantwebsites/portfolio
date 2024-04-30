@@ -25,7 +25,6 @@
 <!-- [ ] implement the backgroundUri so that upon hover the background zooms in slightly -->
 <div
 	class="rounded overflow-none shadow-sm p-[1px] relative bg-white transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:variant-gradient-primary-secondary hover:animate-gradient-rotate hover:cursor-pointer hover:scale-[101%] hover:shadow-lg"
-	class="rounded overflow-none shadow-sm p-[1px] relative bg-white transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:variant-gradient-primary-secondary hover:animate-gradient-rotate hover:cursor-pointer hover:scale-[101%] hover:shadow-lg"
 >
 	<div class="p-4 hidden md:block md:p-6 rounded bg-gradient-to-br from-surface-700 to-surface-900">
 		<div class="grid gap-x-4 grid-cols-[2fr_1fr]">
