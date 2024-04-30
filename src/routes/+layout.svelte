@@ -41,22 +41,22 @@
 		<section class="py-3 border-b border-b-surface-700 md:border-none">
 			<h3 class="h3">Navigation</h3>
 			<ul>
-				<li><a class="hover:text-tertiary-500" href="/">Home</a></li>
-				<li><a class="hover:text-tertiary-500" href="/about">About</a></li>
+				<li><a class="hover:text-secondary-500" href="/">Home</a></li>
+				<li><a class="hover:text-secondary-500" href="/about">About</a></li>
 				<!-- <li><a href="/contact">Contact Me</a></li> -->
 			</ul>
 		</section>
 		<section class="py-3 border-b border-b-surface-700 md:border-none">
 			<h3 class="h3">Influenced By:</h3>
 			<ul>
-				<li><a class="hover:text-tertiary-500" href="https://svelte.dev">Svelte</a></li>
-				<li><a class="hover:text-tertiary-500" href="https://tailwindcss.com">Tailwind CSS</a></li>
+				<li><a class="hover:text-secondary-500" href="https://svelte.dev">Svelte</a></li>
+				<li><a class="hover:text-secondary-500" href="https://tailwindcss.com">Tailwind CSS</a></li>
 			</ul>
 			<h3 class="h3">Social</h3>
 			<ul>
-				<li><a class="hover:text-tertiary-500" href="https://linkedin.com">LinkedIn</a></li>
-				<li><a class="hover:text-tertiary-500" href="https://github.com">GitHub</a></li>
-				<li><a class="hover:text-tertiary-500" href="https://twitter.com">Twitter</a></li>
+				<li><a class="hover:text-secondary-500" href="https://linkedin.com">LinkedIn</a></li>
+				<li><a class="hover:text-secondary-500" href="https://github.com">GitHub</a></li>
+				<li><a class="hover:text-secondary-500" href="https://twitter.com">Twitter</a></li>
 			</ul>
 		</section>
 		<section class="py-3 col-span-full md:col-span-1">

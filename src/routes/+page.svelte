@@ -4,25 +4,8 @@
 	import { Mail } from 'lucide-svelte';
 
 	let { data } = $props();
-	const { blogPosts, featureFlags, tags } = data;
+	const { blogPosts, featureFlags, tags, avatarURI } = data;
 	const { blogFlag, projectsFlag } = featureFlags;
-	const bigHairUri = '/img/big-hair.jpg';
-	const storyTellingUri = '/img/story-telling.jpg';
-	let normalImg = $state(true);
-
-	function photoSwap(node: Node, { img }) {
-		const handleMouseEnter = () => (img = false);
-		const handleMouseLeave = () => (img = true);
-		node.addEventListener('mouseenter', handleMouseEnter);
-		node.addEventListener('mouseleave', handleMouseLeave);
-
-		return {
-			destroy() {
-				node.removeEventListener('mouseenter', handleMouseEnter);
-				node.removeEventListener('mouseleave', handleMouseLeave);
-			}
-		};
-	}
 </script>
 
 <div class="container mx-auto grid md:grid-cols-2 gap-12 lg:gap-24">
@@ -49,9 +32,9 @@
 	</div>
 	<div class="flex items-center justify-center">
 		<Avatar
-			src={storyTellingUri}
+			src={avatarURI}
 			initials={'CG'}
-			width="w-full"
+			width="max-w-[300px] md:max-w-full"
 			rounded="rounded-full"
 			border="border-4 border-primary-500"
 		/>
@@ -64,10 +47,10 @@
 						heading={post.title}
 						subheading={post.description}
 						options={{
-							backgroundUri: post.image,
-							backgroundAlt: post.title,
-							bannerUri: post.image,
-							bannerAlt: post.title
+							bannerUri: post.imgSrc,
+							bannerAlt: post.imgAlt,
+							imgHeight: 200,
+							imgWidth: 200
 						}}
 					/>
 				</a>

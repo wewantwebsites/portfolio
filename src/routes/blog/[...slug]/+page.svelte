@@ -52,6 +52,14 @@
 		@apply text-white;
 	}
 
+	:global(.prose strong, .prose b) {
+		@apply text-secondary-500;
+	}
+
+	:global(.prose a) {
+		@apply text-tertiary-500 hover:text-tertiary-700;
+	}
+
 	.come-with-me {
 		position: sticky;
 		top: 1.5rem;
@@ -63,6 +71,6 @@
 				rgba(var(--color-primary-500) / 0.33) 0px,
 				transparent 50%
 			),
-			radial-gradient(at 98% 10%, rgba(var(--color-tertiary-500) / 0.33) 0px, transparent 50%);
+			radial-gradient(at 98% 10%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%);
 	}
 </style>
