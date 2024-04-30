@@ -75,9 +75,9 @@ Mdsvex allowed me to seamlessly integrate Markdown files into my Svelte componen
 
 My portfolio site followed a straightforward structure:
 
-1. **Routes**: I organized my routes using SvelteKit's file-based routing system. Each page had its own Svelte component.
+1. **Routes**: I organized my routes using SvelteKit's file-based routing system. Each page had its own Svelte component. There is a `routes/+page.svelte` for Home, `routes/about/+page.svelte` for About, `routes/blog/[slug]` for any of the blogs.
 
-2. **Components**: I created reusable components for the header, footer, project cards, and blog posts. TailwindCSS classes were applied directly within these components.
+2. **Components**: I created components for the blog posts, a nav, and a header. Since I'm using mdsvex I can bring more feature rich components as my blogs get more advanced.
 
 3. **Markdown Content**: All my project descriptions and blog posts were stored as Markdown files in a dedicated directory. mdsvex converted these files into Svelte components during build time.
 

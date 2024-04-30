@@ -52,8 +52,12 @@
 		@apply text-white;
 	}
 
-	:global(.prose strong, .prose b) {
+	:global(.prose strong, .prose b, .prose em, .prose i) {
 		@apply text-secondary-500;
+	}
+
+	:global(.prose code) {
+		@apply text-neutral-200;
 	}
 
 	:global(.prose a) {

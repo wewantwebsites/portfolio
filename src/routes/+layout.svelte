@@ -43,25 +43,42 @@
 			<ul>
 				<li><a class="hover:text-secondary-500" href="/">Home</a></li>
 				<li><a class="hover:text-secondary-500" href="/about">About</a></li>
+				<li><a class="hover:text-secondary-500" href="/rss.xml">RSS</a></li>
 				<!-- <li><a href="/contact">Contact Me</a></li> -->
 			</ul>
 		</section>
 		<section class="py-3 border-b border-b-surface-700 md:border-none">
 			<h3 class="h3">Influenced By:</h3>
 			<ul>
-				<li><a class="hover:text-secondary-500" href="https://svelte.dev">Svelte</a></li>
-				<li><a class="hover:text-secondary-500" href="https://tailwindcss.com">Tailwind CSS</a></li>
+				<li>
+					<a class="hover:text-secondary-500" href="https://madprofessor.blog/"
+						>Mad Professor's Blog</a
+					>
+				</li>
+				<li><a href="https://joyofcode.xyz/" class="hover:text-secondary-500">Joy of Code</a></li>
 			</ul>
-			<h3 class="h3">Social</h3>
+			<h3 class="h3 pt-3">Social</h3>
 			<ul>
-				<li><a class="hover:text-secondary-500" href="https://linkedin.com">LinkedIn</a></li>
-				<li><a class="hover:text-secondary-500" href="https://github.com">GitHub</a></li>
-				<li><a class="hover:text-secondary-500" href="https://twitter.com">Twitter</a></li>
+				<li>
+					<a
+						class="hover:text-secondary-500"
+						href="https://www.linkedin.com/in/casimer-guzdziol-iv-785276100/">LinkedIn</a
+					>
+				</li>
+				<li>
+					<a class="hover:text-secondary-500" href="https://github.com/wewantwebsites">GitHub</a>
+				</li>
+				<li><a class="hover:text-secondary-500" href="https://x.com/cg4dev">Twitter</a></li>
 			</ul>
 		</section>
 		<section class="py-3 col-span-full md:col-span-1">
 			<h3 class="h3">Contact</h3>
-			<p>For any inquiries, please contact me at:</p>
+			<p>
+				For any inquiries, please contact me at: <a
+					class="text-tertiary-500 hover:text-tertiary-700"
+					href="mailto:cas.guzdziol@wewantweb.site">cas.guzdziol@wewantweb.site</a
+				>
+			</p>
 		</section>
 	</article>
 </footer>
