@@ -25,9 +25,21 @@
 	import Nav from '$lib/Nav.svelte';
 
 	let { children } = $props();
+
+	// potentital styles md:bg-gradient-to-r md:from-[#546880] md:to-75% md:to-surface-900
 </script>
 
-<AppBar gridColumns="grid-cols-1" slotDefault="place-self-center">
+<AppBar background="bg-[#546880]" gridColumns="grid-cols-3" slotDefault="place-self-center">
+	<svelte:fragment slot="lead">
+		<a href="/"
+			><img
+				width="50"
+				height="50"
+				src="/favicon.png"
+				alt="Logo that is a C, G, and 4 put together as CG4"
+			/></a
+		>
+	</svelte:fragment>
 	<Nav />
 </AppBar>
 
@@ -55,6 +67,7 @@
 					>
 				</li>
 				<li><a href="https://joyofcode.xyz/" class="hover:text-secondary-500">Joy of Code</a></li>
+				<li><a href="https://world.hey.com/dhh" class="hover:text-secondary-500">DHH</a></li>
 			</ul>
 			<h3 class="h3 pt-3">Social</h3>
 			<ul>

@@ -11,7 +11,7 @@
 </script>
 
 <nav>
-	<ul class="flex gap-4">
+	<ul class="flex align-center gap-4">
 		{#each routes as { name, href }}
 			<li>
 				<a

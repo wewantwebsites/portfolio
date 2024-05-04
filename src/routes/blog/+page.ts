@@ -1,7 +1,13 @@
-export const prerender = true;
+import type { Post } from '$lib/types';
 
-import { redirect } from '@sveltejs/kit';
-
-export const load = async () => {
-	redirect(302, '/blog/launching-a-portfolio');
+export const load = async ({ fetch }) => {
+	const blogs = await fetch('/api/posts');
+	const blogPosts = (await blogs.json()).toSorted(
+		(a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime()
+	);
+	return {
+		blogPosts
+	};
 };
+
+export const prerender = true;

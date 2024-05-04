@@ -1,7 +1,16 @@
 <script lang="ts">
-	import CursorHero from '$lib/CursorHero.svelte';
+	import ClassicHero from '$lib/ClassicHero.svelte';
 	import { Accordion, AccordionItem, TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 	let { data } = $props();
+	const keywords = data.keywords?.join(',') || '';
+
+	function formatDate(date: string, dateStyle: DateStyle = 'medium', locales = 'en') {
+		if (!date) return '';
+		const dateToFormat = new Date(date.replaceAll('-', '/'));
+		const dateFormatter = new Intl.DateTimeFormat(locales, { dateStyle });
+
+		return dateFormatter.format(dateToFormat);
+	}
 </script>
 
 <svete:head>
@@ -9,9 +18,9 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={data.title} />
 	<meta property="og:description" content={data.description} />
-	<meta property="og:keywords" content={data.keywords} />
+	<meta property="og:keywords" content={keywords} />
 	<meta name="description" content={data.description} />
-	<meta name="keywords" content={data.keywords} />
+	<meta name="keywords" content={keywords} />
 	<meta name="twitter:title" content={data.title} />
 	<meta name="twitter:description" content={data.description} />
 </svete:head>
@@ -20,9 +29,7 @@
 	<h1 class="h1 text-center mx-auto capitalize">{data.title}</h1>
 </CursorHero> -->
 
-<div class="hero m-[-1rem] mb-[1rem] py-6 md:py-12 lg:py-24">
-	<h1 class="h1 text-center mx-auto capitalize">{data.title}</h1>
-</div>
+<ClassicHero label={data.title!} />
 
 <div class="container mx-auto p-4">
 	<article class="grid gap-2 md:grid-cols-[3fr_1fr]">
@@ -37,6 +44,7 @@
 			</Accordion>
 		</section>
 		<main class="ml-auto prose" use:tocCrawler={{ mode: 'generate' }}>
+			<p>published: {formatDate(data?.date)}</p>
 			<svelte:component this={data.content} />
 		</main>
 		<aside class="hidden md:block md:ml-10">
@@ -48,6 +56,9 @@
 </div>
 
 <style lang="postcss">
+	:global(.prose img) {
+		@apply w-full;
+	}
 	:global(.prose, .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6, .prose *) {
 		@apply text-white;
 	}
@@ -67,14 +78,5 @@
 	.come-with-me {
 		position: sticky;
 		top: 1.5rem;
-	}
-
-	.hero {
-		background-image: radial-gradient(
-				at 0% 0%,
-				rgba(var(--color-primary-500) / 0.33) 0px,
-				transparent 50%
-			),
-			radial-gradient(at 98% 10%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%);
 	}
 </style>

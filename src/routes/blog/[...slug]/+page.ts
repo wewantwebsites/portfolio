@@ -1,7 +1,7 @@
 import type { Post } from '$lib/type.js';
 import { error } from '@sveltejs/kit';
 
-type Params = Post & { content: string };
+type Params = Post & { content: ConstructorOfATypedSvelteComponent };
 
 const postGlob = import.meta.glob('/src/posts/*.md');
 const fetchMap: Record<string, Params> = {};
@@ -17,7 +17,7 @@ export async function load({ params, fetch }) {
 			}
 			// Load the post content from the file system
 			const path = `/src/posts/${params.slug}.md`;
-			const file = (await postGlob[path]()) as { default: string };
+			const file = (await postGlob[path]()) as { default: ConstructorOfATypedSvelteComponent };
 			const res = await fetch('/api/posts?slug=' + params.slug);
 			const data: Post = await res.json();
 

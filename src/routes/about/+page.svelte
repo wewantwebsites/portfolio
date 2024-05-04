@@ -15,16 +15,19 @@
 	</p>
 
 	<p>
-		In addition to my frontend skills, I possess a strong background in PHP, .Net/C#, and Golang,
-		enhancing my ability to deliver comprehensive and diverse software solutions. I'm passionate
-		about advanced frontend JavaScript techniques and practices and am always eager to learn more
-		and take on new challenges.
+		In addition to my frontend skills, I possess a strong background in PHP and Golang, enhancing my
+		ability to deliver comprehensive and diverse software solutions. I'm passionate about advanced
+		frontend JavaScript techniques and practices and am always eager to learn more and take on new
+		challenges.
 	</p>
 
 	<p>
-		Outside of work, I'm an avid sports enthusiast with a love for playing flag football,
-		pickleball, baseball, and softball. These activities not only keep me physically fit but also
-		help me unwind and stay focused.
+		Outside of work, I'm an avid sports enthusiast with a love for playing flag football, rock
+		climbing, pickleball, baseball, and softball. When I was a younger man I wrestled through high
+		school and for a year in college. I also enjoy a variety of music ranging from the 50s through
+		today. I also share a reverance for movies and TV shows, that are also probably considered <em
+			>too old</em
+		> for my age group.
 	</p>
 
 	<p>

@@ -17,6 +17,7 @@ export const GET: RequestHandler = async ({ url }) => {
 		return error(500, String(err));
 	}
 	const hasSearchParams = [...url.searchParams.keys()].length > 0;
+	const slug = url.searchParams.get('slug');
 
 	if (!hasSearchParams) {
 		console.log('No search params provided');
@@ -27,7 +28,6 @@ export const GET: RequestHandler = async ({ url }) => {
 		return json(blogs);
 	}
 
-	const slug = url.searchParams.get('slug');
 	if (!slug) {
 		console.error('No slug provided');
 		console.groupEnd();

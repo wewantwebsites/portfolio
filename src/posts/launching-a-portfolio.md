@@ -57,6 +57,16 @@ SvelteKit is a modern web framework based on Svelte. It offers a delightful deve
 
 I opted to use svelte5 so that I could use `runes`. I'm not doing anything crazy with them right now, it was mostly a decision to embrace the future.
 
+```js
+let { children } = $props();
+
+{@render children()}
+```
+
+While I use React as my dail driver, opting into this syntax does make things easier for me. I can only imagine that if you _truly love_ React this kind of change makes svelte seem less scary right?
+
+![Anakin & Padme meme where Padme asks if Anakin is going to stop crying about React, spoiler alert: he won't](/img/anakin-padme-react-jsx.png)
+
 The SSR feature and built-in api with `routes/api/posts` made it very easy to host my files in a subdir and then use this node API to handle everything else for me. Since Kit uses Vite under the hood I could glob the dir and then use the slug as a key to get the file, it's metadata, and it's contents.
 
 ### 2. TailwindCSS
@@ -66,6 +76,8 @@ TailwindCSS is a utility-first CSS framework. It allows you to build responsive 
 ### 3. Skeleton UI
 
 Skeleton UI provided my components, a bunch of classes integrated into TW for me, and then a theme generator. I'm a huge fan of theme generators since they get you 90-100% of what you want. I'm using their Avatar, buttons, and Tabl of Contents components. The ToC is a nice touch and on mobile I think it's paramount.
+
+To be completely honest though, this is overkill. I don't _need_ more than half of these components so I can only imagine I'll be switching to just a hand-rolled css and component solution for this blog only. **OR** maybe I go through setting up a monorepo. Maybe the monorepo will also be able to use React and Vite components who knows, stick around and find out.
 
 ### 4. mdsvex
 
@@ -77,10 +89,10 @@ My portfolio site followed a straightforward structure:
 
 1. **Routes**: I organized my routes using SvelteKit's file-based routing system. Each page had its own Svelte component. There is a `routes/+page.svelte` for Home, `routes/about/+page.svelte` for About, `routes/blog/[slug]` for any of the blogs.
 
-2. **Components**: I created components for the blog posts, a nav, and a header. Since I'm using mdsvex I can bring more feature rich components as my blogs get more advanced.
+2. **Components**: I created components for the blog posts, a nav, and a header. Since I'm using mdsvex I can bring more feature rich components as my blogs get more advanced. For example bringing in a code snippet.
 
-3. **Markdown Content**: All my project descriptions and blog posts were stored as Markdown files in a dedicated directory. mdsvex converted these files into Svelte components during build time.
+3. **Markdown Content**: All my project descriptions and blog posts were stored as Markdown files in a dedicated directory. mdsvex converted these files into Svelte components during build time. For the API `/api/posts` I glob the directory and use the slug to grab the file and then we can get the metadata for the post.
 
 ## Conclusion
 
-Building my portfolio site was both rewarding and educational. The combination of SvelteKit, TailwindCSS, and mdsvex allowed me to create a performant, visually appealing, and easy-to-maintain site. Whether you're a seasoned developer or just starting out, consider exploring these tools for your next project! 🚀
+This was my first time building a blog this way. In the past I had worked with Wordpress, Joomla, and Drupal to quickly create blogs for clients. Seeing as I wasn't going to need a CMS I decided to give this pattern a try and I found it to be rewarding. First blog post is done, see ya!
