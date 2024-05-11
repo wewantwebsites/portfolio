@@ -1,5 +1,5 @@
 import type { Post } from '$lib/type.js';
-const tags = ['SvelteKit', 'Tailwind CSS', 'Skeleton UI', 'Vercel', 'GSAP'] as const;
+const tags = ['SvelteKit', 'Tailwind CSS', 'Skeleton UI', 'Vercel'] as const;
 const avatarURI = '/img/story-telling.jpg' as const;
 export async function load({ fetch }) {
 	const res = await fetch('/api/posts');

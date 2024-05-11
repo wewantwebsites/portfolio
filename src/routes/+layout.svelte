@@ -29,17 +29,7 @@
 	// potentital styles md:bg-gradient-to-r md:from-[#546880] md:to-75% md:to-surface-900
 </script>
 
-<AppBar background="bg-[#546880]" gridColumns="grid-cols-3" slotDefault="place-self-center">
-	<svelte:fragment slot="lead">
-		<a href="/"
-			><img
-				width="50"
-				height="50"
-				src="/favicon.png"
-				alt="Logo that is a C, G, and 4 put together as CG4"
-			/></a
-		>
-	</svelte:fragment>
+<AppBar gridColumns="grid-cols-1" slotDefault="place-self-center">
 	<Nav />
 </AppBar>
 

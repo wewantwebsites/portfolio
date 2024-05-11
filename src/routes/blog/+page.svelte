@@ -11,7 +11,7 @@
 	<p class="mb-4">Frontend development, php, & golang for the tech gang.</p>
 
 	{#each data.blogPosts as post}
-		<a href="/blog/{post.slug}" data-sveltekit-preload-data>
+		<a class="inline-block w-full mb-4" href="/blog/{post.slug}" data-sveltekit-preload-data>
 			<OutlineCard
 				heading={post.title}
 				subheading={post.description}

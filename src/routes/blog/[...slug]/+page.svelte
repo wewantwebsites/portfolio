@@ -29,7 +29,7 @@
 	<h1 class="h1 text-center mx-auto capitalize">{data.title}</h1>
 </CursorHero> -->
 
-<ClassicHero label={data.title!} />
+<ClassicHero imgSrc={data.bannerSrc} label={data.title!} />
 
 <div class="container mx-auto p-4">
 	<article class="grid gap-2 md:grid-cols-[3fr_1fr]">
