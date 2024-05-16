@@ -6,16 +6,7 @@ type Paths = Record<string, { metadata: Post }>;
 
 export const GET: RequestHandler = async ({ url }) => {
 	console.group('GET /api/posts');
-	let paths: Paths;
-	try {
-		paths = import.meta.glob('/src/posts/*.md', { eager: true });
-		if (!paths) {
-			throw new Error('No posts found');
-		}
-	} catch (err) {
-		console.error(err);
-		return error(500, String(err));
-	}
+	const paths: Paths = import.meta.glob('/src/posts/*.md', { eager: true });
 	const hasSearchParams = [...url.searchParams.keys()].length > 0;
 	const slug = url.searchParams.get('slug');
 
@@ -51,12 +42,15 @@ async function getBlogPost(paths: Paths, slug: string): Promise<Post> {
 }
 
 async function getAllPosts(paths: Paths): Promise<Post[]> {
-	const posts = Object.entries(paths).map(([path, file]) => {
-		const { metadata } = file as { metadata: Post };
-		const slug = path.split('/').pop()!.replace('.md', '');
+	const posts = Object.entries(paths)
+		.map(([path, file]) => {
+			const { metadata } = file as { metadata: Post };
+			const slug = path.split('/').pop()!.replace('.md', '');
 
-		return { ...metadata, slug };
-	});
+			if (!metadata.published) return null;
+			return { ...metadata, slug };
+		})
+		.filter(Boolean) as Post[];
 
 	return posts;
 }

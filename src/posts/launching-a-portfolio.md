@@ -1,4 +1,5 @@
 ---
+published: true
 id: 4f45ace8-d7a1-40ee-b9eb-35a30e87d907
 title: 'Building My Portfolio Site: A Journey with SvelteKit, TailwindCSS, and Markdown'
 description: |

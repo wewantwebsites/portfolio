@@ -24,6 +24,7 @@ export type Post = {
 	date: string;
 	categories: string[];
 	keywords: string[];
+	published: boolean;
 	slug?: string;
 	imgSrc?: string;
 	imgAlt?: string;
