@@ -4,3 +4,4 @@ published: false
 title: Automatically Setting Node Version with NVM and ZSH
 description: Learn how to automatically set the node version of your environment upon navigation or opening your project directory.
 ---
+
