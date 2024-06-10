@@ -1,7 +1,3 @@
-<script>
-	import CursorHero from '$lib/CursorHero.svelte';
-</script>
-
 <div class="flex flex-col min-h-[100dvh]">
 	<header class="bg-primary-800 text-white mb-4">
 		<div class="container mx-auto flex flex-col items-center text-center py-8 px-4 md:px-6">
