@@ -1,18 +1,6 @@
-export default class BlogApi {
-	private token: string;
-	endpoint: string;
-	customFetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
-
-	constructor(token: string, endpoint: string, customFetch = fetch) {
-		this.token = token;
-		this.endpoint = endpoint;
-		this.customFetch = customFetch;
-	}
-
-	async getPosts(limit = 10) {
-		const query = `
-      query GetPosts {
-        posts(first: ${limit}) {
+const GetPostQuery = `
+      query GetPosts($limit: Int!){
+        posts(first: $limit) {
           id
           slug
           content
@@ -27,6 +15,20 @@ export default class BlogApi {
         }
       }
     `;
+
+export default class BlogApi {
+	private token: string;
+	endpoint: string;
+	customFetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
+
+	constructor(token: string, endpoint: string, customFetch = fetch) {
+		this.token = token;
+		this.endpoint = endpoint;
+		this.customFetch = customFetch;
+	}
+
+	async getPosts(limit = 10) {
+		const query = GetPostQuery;
 		const response = await this.customFetch(this.endpoint, {
 			method: 'POST',
 			headers: {
@@ -34,7 +36,7 @@ export default class BlogApi {
 			},
 			body: JSON.stringify({
 				query,
-				variables: null,
+				variables: { limit: 3 },
 				operationName: 'GetPosts'
 			})
 		});
@@ -46,8 +48,8 @@ export default class BlogApi {
 
 	async getPost(slug: string) {
 		const query = `
-      query GetPost() {
-        post(where: {slug: "${slug}"}) {
+      query GetPost($slug: String!) {
+        post(where: {slug: $slug) {
           content
           description
           updatedAt
@@ -64,7 +66,7 @@ export default class BlogApi {
 			},
 			body: JSON.stringify({
 				query,
-				variables: null,
+				variables: { slug },
 				operationName: 'GetPost'
 			})
 		});
