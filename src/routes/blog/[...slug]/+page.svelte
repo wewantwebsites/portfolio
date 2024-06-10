@@ -2,19 +2,18 @@
 	import ClassicHero from '$lib/ClassicHero.svelte';
 	import { Accordion, AccordionItem, TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 	let { data } = $props();
-	// const keywords = data.keywords?.join(',') || '';
+	console.log('data: ', data);
+	const keywords = data.tags?.join(',') || '';
 
-	function formatDate(date: string, dateStyle: DateStyle = 'medium', locales = 'en') {
-		if (!date) return '';
-		const dateToFormat = new Date(date.replaceAll('-', '/'));
-		const dateFormatter = new Intl.DateTimeFormat(locales, { dateStyle });
+	function formatDate(date: string) {
+		const d = new Date(date);
 
-		return dateFormatter.format(dateToFormat);
+		return `${d.toLocaleDateString()} at ${d.toLocaleTimeString()}`;
 	}
 </script>
 
 <!-- TODO: update this to use the API data -->
-<!-- <svete:head>
+<svete:head>
 	<title>{data.title}</title>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={data.title} />
@@ -25,9 +24,10 @@
 	<meta name="twitter:title" content={data.title} />
 	<meta name="twitter:description" content={data.description} />
 </svete:head>
-
-<ClassicHero imgSrc={data.bannerSrc} label={data.title!} /> -->
-
+<!-- TODO: add banner images -->
+{#if data.bannerSrc}
+	<ClassicHero imgSrc={data.bannerSrc} label={data.title!} />
+{/if}
 <div class="container mx-auto p-4">
 	<article class="grid gap-2 md:grid-cols-[3fr_1fr]">
 		<section class="mb-5 md:hidden">
@@ -41,11 +41,14 @@
 			</Accordion>
 		</section>
 		<main class="ml-auto prose" use:tocCrawler={{ mode: 'generate' }}>
-			<!-- <p>published: {formatDate(data?.date)}</p> -->
-			<div>
-				{@html data.content}
-			</div>
-			<!-- <svelte:component this={data.content} /> -->
+			<p>published: {formatDate(data?.updatedAt ?? data?.date)}</p>
+			{#if data?.updatedAt}
+				<div>
+					{@html data.content}
+				</div>
+			{:else}
+				<svelte:component this={data.content} />
+			{/if}
 		</main>
 		<aside class="hidden md:block md:ml-10">
 			<div class="come-with-me">

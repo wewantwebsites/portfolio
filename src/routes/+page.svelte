@@ -71,6 +71,19 @@
 			{/each}
 		</section>
 	{/if}
+	{#if !!data?.posts.length}
+		{#each data.posts as post}
+			<a href="/blog/{post.slug}" data-sveltekit-preload-data>
+				<h4>
+					{post.title}
+				</h4>
+				<div>
+					{post.description}
+				</div>
+				/>
+			</a>
+		{/each}
+	{/if}
 </div>
 
 <style lang="postcss">

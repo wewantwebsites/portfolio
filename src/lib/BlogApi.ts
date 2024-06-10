@@ -38,10 +38,10 @@ export default class BlogApi {
 				operationName: 'GetPosts'
 			})
 		});
-		const data = await response.json();
+		const posts = (await response.json()).data.posts;
 
-		console.log('blog api data: ', data);
-		return data;
+		console.log('blog api data: ', posts);
+		return posts;
 	}
 
 	async getPost(slug: string) {
@@ -49,6 +49,8 @@ export default class BlogApi {
       query GetPost() {
         post(where: {slug: "${slug}"}) {
           content
+          description
+          updatedAt
           tags
           title
           id
