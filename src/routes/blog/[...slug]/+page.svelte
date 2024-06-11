@@ -3,16 +3,19 @@
 	import { Accordion, AccordionItem, TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 	let { data } = $props();
 	console.log('data: ', data);
-	const keywords = data.tags?.join(',') || '';
+	let keywords = data?.tags.join(',') || '';
 
 	function formatDate(date: string) {
 		const d = new Date(date);
 
-		return `${d.toLocaleDateString()} at ${d.toLocaleTimeString()}`;
+		return d.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
 	}
 </script>
 
-<!-- TODO: update this to use the API data -->
 <svete:head>
 	<title>{data.title}</title>
 	<meta property="og:type" content="article" />
@@ -24,9 +27,8 @@
 	<meta name="twitter:title" content={data.title} />
 	<meta name="twitter:description" content={data.description} />
 </svete:head>
-<!-- TODO: add banner images -->
-{#if data.bannerSrc}
-	<ClassicHero imgSrc={data.bannerSrc} label={data.title!} />
+{#if data?.title}
+	<ClassicHero label={data.title!} />
 {/if}
 <div class="container mx-auto p-4">
 	<article class="grid gap-2 md:grid-cols-[3fr_1fr]">
@@ -41,14 +43,8 @@
 			</Accordion>
 		</section>
 		<main class="ml-auto prose" use:tocCrawler={{ mode: 'generate' }}>
-			<p>published: {formatDate(data?.updatedAt ?? data?.date)}</p>
-			{#if data?.updatedAt}
-				<div>
-					{@html data.content}
-				</div>
-			{:else}
-				<svelte:component this={data.content} />
-			{/if}
+			<p>published: {formatDate(data?.authors[0].publishedAt)}</p>
+			{@html data.content}
 		</main>
 		<aside class="hidden md:block md:ml-10">
 			<div class="come-with-me">

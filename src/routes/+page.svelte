@@ -1,32 +1,21 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import OutlineCard from '$lib/OutlineCard.svelte';
 	import { Mail } from 'lucide-svelte';
+	import type { PageData } from './$types';
+	import OutlineCard from '$lib/OutlineCard.svelte';
 
-	let { data } = $props();
-	const { blogPosts, featureFlags, tags, avatarURI } = data;
-	const { projectsFlag } = featureFlags;
-
-	function photoSwap(node: Node, { img }) {
-		const handleMouseEnter = () => (img = false);
-		const handleMouseLeave = () => (img = true);
-		node.addEventListener('mouseenter', handleMouseEnter);
-		node.addEventListener('mouseleave', handleMouseLeave);
-
-		return {
-			destroy() {
-				node.removeEventListener('mouseenter', handleMouseEnter);
-				node.removeEventListener('mouseleave', handleMouseLeave);
-			}
-		};
-	}
+	type Props = {
+		data: PageData;
+	};
+	let { data }: Props = $props();
+	console.log(data);
 </script>
 
 <div class="container mx-auto grid md:grid-cols-2 gap-12 lg:gap-24">
 	<div class="flex flex-col justify-center space-y-4">
 		<div class="prose space-y-4 py-4">
 			<span class="chip variant-ghost-primary text-white">Welcome to my portfolio!</span>
-			{#each tags as tag}
+			{#each data.tags as tag}
 				<span class="chip variant-ghost-secondary text-neutral-200 pointer-events-none mr-2"
 					>{tag}</span
 				>
@@ -46,44 +35,29 @@
 	</div>
 	<div class="flex items-center justify-center">
 		<Avatar
-			src={avatarURI}
+			src={data.avatarURI}
 			initials={'CG'}
 			width="max-w-[300px] md:max-w-full"
 			rounded="rounded-full"
 			border="border-4 border-primary-500"
 		/>
 	</div>
-	{#if projectsFlag && data.blogPosts.length > 0}
-		<section class="col-span-full grid subgrid gap-3">
-			{#each blogPosts as post}
-				<a href="/blog/{post.slug}" data-sveltekit-preload-data>
-					<OutlineCard
-						heading={post.title}
-						subheading={post.description}
-						options={{
-							bannerUri: post.imgSrc,
-							bannerAlt: post.imgAlt,
-							imgHeight: 200,
-							imgWidth: 200
-						}}
-					/>
-				</a>
-			{/each}
-		</section>
-	{/if}
-	{#if !!data?.posts.length}
-		{#each data.posts as post}
+	<section class="col-span-full grid subgrid gap-3">
+		{#each data?.posts as post}
 			<a href="/blog/{post.slug}" data-sveltekit-preload-data>
-				<h4>
-					{post.title}
-				</h4>
-				<div>
-					{post.description}
-				</div>
+				<OutlineCard
+					heading={post.title}
+					subheading={post.description}
+					options={{
+						bannerUri: post.coverImage.url ?? '',
+						bannerAlt: post.imgAlt ?? '',
+						imgHeight: Math.min(post.coverImage.height, 200),
+						imgWidth: Math.min(post.coverImage.width, 400)
+					}}
 				/>
 			</a>
 		{/each}
-	{/if}
+	</section>
 </div>
 
 <style lang="postcss">

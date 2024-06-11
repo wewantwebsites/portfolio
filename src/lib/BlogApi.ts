@@ -1,21 +1,3 @@
-const GetPostQuery = `
-      query GetPosts($limit: Int!){
-        posts(first: $limit) {
-          id
-          slug
-          content
-          createdBy {
-            name
-            picture
-            publishedAt
-            updatedAt
-          }
-          tags
-          title
-        }
-      }
-    `;
-
 export default class BlogApi {
 	private token: string;
 	endpoint: string;
@@ -28,7 +10,31 @@ export default class BlogApi {
 	}
 
 	async getPosts(limit = 10) {
-		const query = GetPostQuery;
+		const queryName = 'RecentPosts';
+		const query = `
+      query ${queryName}() {
+				posts(first: ${limit}) {
+					id
+					slug
+					title
+					description
+					content
+					tags
+					coverImage {
+						url
+						width
+						height
+					}
+					createdBy {
+						name
+						picture
+						publishedAt
+						updatedAt
+					}
+				}
+			}
+    `;
+
 		const response = await this.customFetch(this.endpoint, {
 			method: 'POST',
 			headers: {
@@ -36,8 +42,8 @@ export default class BlogApi {
 			},
 			body: JSON.stringify({
 				query,
-				variables: { limit: 3 },
-				operationName: 'GetPosts'
+				variables: null,
+				operationName: queryName
 			})
 		});
 		const posts = (await response.json()).data.posts;
@@ -47,15 +53,31 @@ export default class BlogApi {
 	}
 
 	async getPost(slug: string) {
+		const queryName = 'GetPost';
 		const query = `
-      query GetPost($slug: String!) {
-        post(where: {slug: $slug) {
-          content
-          description
-          updatedAt
-          tags
-          title
-          id
+      query ${queryName}() {
+        post(where: {slug: "${slug}"}) {
+					id
+					slug
+					title
+					description
+					content
+					tags
+					createdBy {
+						name
+						picture
+						publishedAt
+						updatedAt
+					}
+					coverImage {
+						url
+						width
+						height
+					}
+					authors {
+						name
+						publishedAt
+					}
         }
       }
     `;
@@ -66,8 +88,8 @@ export default class BlogApi {
 			},
 			body: JSON.stringify({
 				query,
-				variables: { slug },
-				operationName: 'GetPost'
+				variables: null,
+				operationName: queryName
 			})
 		});
 

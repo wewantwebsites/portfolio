@@ -5,6 +5,7 @@ import { compile } from 'mdsvex';
 
 type Params = Post & { content: ConstructorOfATypedSvelteComponent };
 
+const { VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT } = import.meta.env;
 const fetchMap: Record<string, Params> = {};
 export async function load({ params: { slug }, fetch }) {
 	try {
@@ -17,7 +18,6 @@ export async function load({ params: { slug }, fetch }) {
 				};
 			}
 
-			const { VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT } = import.meta.env;
 			const api = new BlogApi(VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT, fetch);
 			const post = await api.getPost(slug);
 			const compiled = await compile(post.content);

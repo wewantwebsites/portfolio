@@ -1,12 +1,10 @@
-import type { Post } from '$lib/types';
-
+import BlogApi from '$lib/BlogApi.js';
+const { VITE_HYGRAPH_API_TOKEN: TOKEN, VITE_HYGRAPH_API_ENDPOINT: ENDPOINT } = import.meta.env;
 export const load = async ({ fetch }) => {
-	const blogs = await fetch('/api/posts');
-	const blogPosts = (await blogs.json()).toSorted(
-		(a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime()
-	);
+	const api = new BlogApi(TOKEN, ENDPOINT, fetch);
+	const posts = await api.getPosts(3);
+
 	return {
-		blogPosts
+		blogPosts: posts
 	};
 };
-
