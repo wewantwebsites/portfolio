@@ -2,14 +2,17 @@
 	import ClassicHero from '$lib/ClassicHero.svelte';
 	import { Accordion, AccordionItem, TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 	let { data } = $props();
-	const keywords = data.keywords?.join(',') || '';
+	console.log('data: ', data);
+	let keywords = data?.tags.join(',') || '';
 
-	function formatDate(date: string, dateStyle: DateStyle = 'medium', locales = 'en') {
-		if (!date) return '';
-		const dateToFormat = new Date(date.replaceAll('-', '/'));
-		const dateFormatter = new Intl.DateTimeFormat(locales, { dateStyle });
+	function formatDate(date: string) {
+		const d = new Date(date);
 
-		return dateFormatter.format(dateToFormat);
+		return d.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
 	}
 </script>
 
@@ -24,13 +27,9 @@
 	<meta name="twitter:title" content={data.title} />
 	<meta name="twitter:description" content={data.description} />
 </svete:head>
-<!-- 
-<CursorHero bannerStyles="m-[-1rem] mb-[1rem] py-1 md:py-6">
-	<h1 class="h1 text-center mx-auto capitalize">{data.title}</h1>
-</CursorHero> -->
-
-<ClassicHero imgSrc={data.bannerSrc} label={data.title!} />
-
+{#if data?.title}
+	<ClassicHero label={data.title!} />
+{/if}
 <div class="container mx-auto p-4">
 	<article class="grid gap-2 md:grid-cols-[3fr_1fr]">
 		<section class="mb-5 md:hidden">
@@ -44,8 +43,8 @@
 			</Accordion>
 		</section>
 		<main class="ml-auto prose" use:tocCrawler={{ mode: 'generate' }}>
-			<p>published: {formatDate(data?.date)}</p>
-			<svelte:component this={data.content} />
+			<p>published: {formatDate(data?.authors[0].publishedAt)}</p>
+			{@html data.content}
 		</main>
 		<aside class="hidden md:block md:ml-10">
 			<div class="come-with-me">

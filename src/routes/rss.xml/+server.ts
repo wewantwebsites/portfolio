@@ -1,14 +1,15 @@
-import { dev } from '$app/environment';
 import type { Post } from '$lib/type.js';
+import BlogApi from '$lib/BlogApi';
+
 const config = {
 	title: 'SvelteKit Blog',
 	description: 'A blog built with SvelteKit'
 };
 
+import { VITE_HYGRAPH_API_ENDPOINT, VITE_HYGRAPH_API_TOKEN } from '$env/static/private';
 export async function GET({ fetch }) {
-	const res = await fetch('api/posts');
-	const posts = (await res.json()) as Post[];
-
+	const api = new BlogApi(VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT, fetch);
+	const posts = await api.getPosts(Number.MAX_SAFE_INTEGER);
 	const headers = { 'Content-Type': 'application/rss+xml' };
 	const url = 'https://cg4-dev.vercel.app';
 	const xml = `

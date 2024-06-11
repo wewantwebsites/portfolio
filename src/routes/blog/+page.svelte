@@ -16,10 +16,10 @@
 				heading={post.title}
 				subheading={post.description}
 				options={{
-					bannerUri: post.imgSrc,
-					bannerAlt: post.imgAlt,
-					imgHeight: 200,
-					imgWidth: 200
+					bannerUri: post.coverImage.url,
+					bannerAlt: post.coverImage?.alt ?? 'Image alt for: ' + post.title,
+					imgHeight: Math.min(post.coverImage.height, 200),
+					imgWidth: Math.min(post.coverImage.width, 400)
 				}}
 			/>
 		</a>

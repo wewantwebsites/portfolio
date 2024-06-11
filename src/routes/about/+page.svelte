@@ -45,9 +45,8 @@
 			cas.guzdziol@wewantweb.site
 		</a>. I look forward to connecting with you!
 	</p>
+	<a class="btn variant-ghost-tertiary" href="/resume">View My Resume</a>
 </section>
-
-<!-- <a class="btn variant-ghost-tertiary">View My Resume</a> -->
 
 <style lang="postcss">
 	p {
