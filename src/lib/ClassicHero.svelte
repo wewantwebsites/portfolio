@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	let { label, imgSrc }: { label: string; imgSrc: string; imgAlt: string } = $props();
 
 	let el: HTMLElement;
-	onMount(() => {
+	$effect(() => {
 		el.style.backgroundImage = `url(${imgSrc}), radial-gradient(   at 0% 0%,   rgba(var(--color-primary-500) / 0.33) 0px,   transparent 50%  ),  radial-gradient(at 98% 10%, rgba(var(--color-secondary-500) / 0.33) 0px, transparent 50%)`;
 		el.style.backgroundSize = 'cover';
 		el.style.backgroundPosition = 'center top';
