@@ -96,3 +96,14 @@ export default class BlogApi {
 		return (await res.json()).data.post;
 	}
 }
+
+// Tests
+if (import.meta.vitest) {
+	const { describe, it } = import.meta.vitest;
+	console.log('running the blog api test');
+	describe.skip('BlogApi', () => {
+		it('should fetch recent posts', async () => {
+			console.log('running the blog api test');
+		});
+	});
+}

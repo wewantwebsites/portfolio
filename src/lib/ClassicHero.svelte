@@ -1,5 +1,10 @@
 <script lang="ts">
-	let { label, imgSrc }: { label: string; imgSrc: string; imgAlt: string } = $props();
+	type Props = {
+		label: string;
+		imgSrc: string;
+		imgAlt: string;
+	};
+	let { label, imgSrc }: Props = $props();
 
 	let el: HTMLElement;
 	$effect(() => {
