@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => ({
 	},
 	test: {
 		environment: 'jsdom',
-		setupFiles: ['./testSetup.ts']
+		setupFiles: ['./testSetup.ts'],
+		includeSource: ['src/**/*.ts']
 	}
 }));
