@@ -3,7 +3,7 @@
 	import { Accordion, AccordionItem, TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 	let { data } = $props();
 	console.log('data: ', data);
-	let keywords = data?.tags.join(',') || '';
+	let keywords = data?.tags?.join(', ') || '';
 
 	function formatDate(date: string) {
 		const d = new Date(date);

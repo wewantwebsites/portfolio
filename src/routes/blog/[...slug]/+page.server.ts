@@ -6,33 +6,30 @@ import { compile } from 'mdsvex';
 type Params = Post & { content: ConstructorOfATypedSvelteComponent };
 
 const { VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT } = import.meta.env;
-const fetchMap: Record<string, Params> = {};
 export async function load({ params: { slug }, fetch }) {
+	if (slug === 'undefined') {
+		return error(500, 'Bad Request');
+	}
 	try {
 		if (slug) {
-			const cached = fetchMap[slug];
-			if (cached) {
-				return {
-					status: 304,
-					...cached
-				};
-			}
-
 			const api = new BlogApi(VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT, fetch);
-			const post = await api.getPost(slug);
-			const compiled = await compile(post.content);
-			if (!compiled) {
+			const post: Post = await api.getPost(slug);
+			let compiled;
+			if (post.content) {
+				compiled = await compile(post.content);
+			}
+			if (!compiled.code) {
 				return error(500, 'Could not compile post ' + slug);
 			}
-			fetchMap[slug] = {
-				...post,
-				keywords: post.tags.join(', '),
-				content: compiled.code
-			};
 
-			return fetchMap[slug];
+			return {
+				...post,
+				keywords: post?.tags.join(', '),
+				content: compiled.code
+			} satisfies Params;
 		}
-	} catch {
+	} catch (err) {
+		console.error('There was an error\n:', err);
 		console.error('Could not find post ' + slug);
 		return error(404, 'Could not find post ' + slug);
 	}
