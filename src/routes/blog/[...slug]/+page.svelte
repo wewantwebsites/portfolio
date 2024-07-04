@@ -2,7 +2,6 @@
 	import ClassicHero from '$lib/ClassicHero.svelte';
 	import { Accordion, AccordionItem, TableOfContents, tocCrawler } from '@skeletonlabs/skeleton';
 	let { data } = $props();
-	console.log('data: ', data);
 	let keywords = data?.tags?.join(', ') || '';
 
 	function formatDate(date: string) {
@@ -28,7 +27,7 @@
 	<meta name="twitter:description" content={data.description} />
 </svete:head>
 {#if data?.title}
-	<ClassicHero label={data.title!} />
+	<ClassicHero label={data.title!} imgAlt="" imgSrc="" />
 {/if}
 <div class="container mx-auto p-4">
 	<article class="grid gap-2 md:grid-cols-[3fr_1fr]">

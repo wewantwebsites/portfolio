@@ -81,18 +81,23 @@ export default class BlogApi {
         }
       }
     `;
-		const res = await this.customFetch(this.endpoint, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				query,
-				variables: null,
-				operationName: queryName
-			})
-		});
 
-		return (await res.json()).data.post;
+		try {
+			const res = await this.customFetch(this.endpoint, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					query,
+					variables: null,
+					operationName: queryName
+				})
+			});
+
+			return (await res.json()).data.post;
+		} catch (err) {
+			return Promise.reject(new Error(`There was an error in BlogApi.getPost: ${err}`));
+		}
 	}
 }
