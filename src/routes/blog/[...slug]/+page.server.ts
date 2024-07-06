@@ -4,15 +4,11 @@ import { error } from '@sveltejs/kit';
 import { compile } from 'mdsvex';
 
 type Params = Post & { content: ConstructorOfATypedSvelteComponent };
-type Compiled = {
-	code: string;
-	data: object;
-	map: string;
-};
+
 const { VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT } = import.meta.env;
 export async function load({ params: { slug }, fetch }) {
 	if (slug === 'undefined' || !slug) {
-		return error(500, 'Bad Request');
+		return error(404, 'Not Found');
 	}
 	try {
 		if (slug) {
@@ -35,7 +31,6 @@ export async function load({ params: { slug }, fetch }) {
 		}
 	} catch (err) {
 		console.error('There was an error\n:', err);
-		console.error('Could not find post ' + slug);
-		return error(404, 'Could not find post ' + slug);
+		return error(500, 'There was an internal error. It was probably something <em>you</em> did.');
 	}
 }
