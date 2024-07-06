@@ -16,7 +16,7 @@
 </script>
 
 <svete:head>
-	<title>{data.title}</title>
+	<title>{data.title} | CG4 Dev</title>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={data.title} />
 	<meta property="og:description" content={data.description} />

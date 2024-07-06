@@ -4,22 +4,27 @@ import { error } from '@sveltejs/kit';
 import { compile } from 'mdsvex';
 
 type Params = Post & { content: ConstructorOfATypedSvelteComponent };
-
+type Compiled = {
+	code: string;
+	data: object;
+	map: string;
+};
 const { VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT } = import.meta.env;
 export async function load({ params: { slug }, fetch }) {
-	if (slug === 'undefined') {
+	if (slug === 'undefined' || !slug) {
 		return error(500, 'Bad Request');
 	}
 	try {
 		if (slug) {
 			const api = new BlogApi(VITE_HYGRAPH_API_TOKEN, VITE_HYGRAPH_API_ENDPOINT, fetch);
 			const post: Post = await api.getPost(slug);
-			let compiled;
-			if (post.content) {
-				compiled = await compile(post.content);
+			if (!post?.content) {
+				return error(500, 'The retrieved post was empty');
 			}
-			if (!compiled.code) {
-				return error(500, 'Could not compile post ' + slug);
+
+			const compiled = await compile(post.content);
+			if (!compiled?.code) {
+				return error(500, 'Could not compile post');
 			}
 
 			return {
