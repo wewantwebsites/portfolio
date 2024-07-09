@@ -14,6 +14,6 @@
 	});
 </script>
 
-<div bind:this={el} class="hero m-[-1rem] mb-[1rem] py-6 md:py-12 lg:py-24">
-	<h1 class="h1 text-center mx-auto capitalize">{label}</h1>
+<div bind:this={el} class="hero m-[-1rem] mb-[1rem] py-6 px-2 md:py-12 lg:py-24">
+	<h1 class="h1 text-center mx-auto capitalize text-balance">{label}</h1>
 </div>
